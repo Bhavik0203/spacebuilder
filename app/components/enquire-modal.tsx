@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, ChevronDown } from 'lucide-react';
 
 interface EnquireModalProps {
     isOpen: boolean;
@@ -9,6 +9,14 @@ interface EnquireModalProps {
 }
 
 export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
+    const [formData, setFormData] = React.useState({
+        firstName: '',
+        email: '',
+        mobile: '',
+        message: '',
+        callback: false
+    });
+
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -44,33 +52,59 @@ export default function EnquireModal({ isOpen, onClose }: EnquireModalProps) {
                 <div className="mt-8 space-y-6">
                     {/* Header (optional, image doesn't show one explicitly but usually needed) */}
 
-                    <form className="space-y-4">
+                    <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                         <input
                             type="text"
                             placeholder="First Name*"
+                            value={formData.firstName}
+                            onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
                             className="w-full border border-blue-300 rounded px-4 py-3 placeholder-[#4A77B5] text-[#4A77B5] focus:outline-none focus:border-[#2c4e7a]"
                         />
 
                         <input
                             type="email"
                             placeholder="Mail Id*"
+                            value={formData.email}
+                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                             className="w-full border border-blue-300 rounded px-4 py-3 placeholder-[#4A77B5] text-[#4A77B5] focus:outline-none focus:border-[#2c4e7a]"
                         />
 
-                        <input
-                            type="tel"
-                            placeholder="Mobile No*"
-                            className="w-full border border-blue-300 rounded px-4 py-3 placeholder-[#4A77B5] text-[#4A77B5] focus:outline-none focus:border-[#2c4e7a]"
-                        />
+                        <div className="flex gap-3">
+                            <div className="w-24 border border-blue-300 rounded flex items-center justify-between bg-white text-[#4A77B5] px-2 cursor-pointer hover:border-[#2c4e7a] transition-colors">
+                                <div className="flex items-center gap-1">
+                                    <span className="text-lg leading-none mt-0.5">🇮🇳</span>
+                                    <span className="font-medium text-sm">+91</span>
+                                </div>
+                                <ChevronDown size={14} className="opacity-70" />
+                            </div>
+                            <input
+                                type="text"
+                                inputMode="numeric"
+                                placeholder="Mobile No*"
+                                value={formData.mobile}
+                                onChange={(e) => {
+                                    const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                                    setFormData({ ...formData, mobile: value });
+                                }}
+                                className="flex-1 border border-blue-300 rounded px-4 py-3 placeholder-[#4A77B5] text-[#4A77B5] focus:outline-none focus:border-[#2c4e7a]"
+                            />
+                        </div>
 
                         <textarea
                             rows={4}
                             placeholder="Message Here*"
+                            value={formData.message}
+                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                             className="w-full border border-blue-300 rounded px-4 py-3 placeholder-[#4A77B5] text-[#4A77B5] focus:outline-none focus:border-[#2c4e7a] resize-none"
                         ></textarea>
 
                         <label className="flex items-start gap-2 cursor-pointer mt-4">
-                            <input type="checkbox" className="mt-1 accent-[#4A77B5]" />
+                            <input
+                                type="checkbox"
+                                checked={formData.callback}
+                                onChange={(e) => setFormData({ ...formData, callback: e.target.checked })}
+                                className="mt-1 accent-[#4A77B5]"
+                            />
                             <span className="text-xs text-gray-400">Please check the box to confirm interest in call back for your inquiry.</span>
                         </label>
 

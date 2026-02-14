@@ -53,7 +53,7 @@ export default function OngoingProjects() {
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-6 md:px-12 lg:px-10">
-                {/* Header */}
+
                 <div className="mb-12">
                     <div className="flex items-center gap-4 mb-4">
                         <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-xs">Projects</span>
@@ -62,11 +62,11 @@ export default function OngoingProjects() {
                     <h2 className="text-3xl md:text-5xl font-serif text-[#1B2B41] font-bold">Ongoing Projects</h2>
                 </div>
 
-                {/* Grid */}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {PROJECTS.map((project, index) => (
                         <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-row hover:shadow-xl transition-shadow duration-300 border border-gray-100 h-full">
-                            {/* Image Section */}
+
                             <div className="relative w-2/5 min-h-full">
                                 <Image
                                     src={project.image}
@@ -89,9 +89,9 @@ export default function OngoingProjects() {
 
                                 <div className="space-y-1.5 mb-6">
                                     {Object.entries(project.details).map(([key, value]) => (
-                                        <div key={key} className="flex text-xs text-gray-600 border-b border-dashed border-gray-200 pb-1 last:border-0">
-                                            <span className="font-bold text-[#1B2B41] w-24 shrink-0">{key} :</span>
-                                            <span className="truncate">{value}</span>
+                                        <div key={key} className="flex items-start text-xs text-gray-600 border-b border-dashed border-gray-200 pb-1 last:border-0">
+                                            <span className="font-bold text-[#1B2B41] w-20 shrink-0">{key} :</span>
+                                            <span className="leading-tight">{value}</span>
                                         </div>
                                     ))}
                                 </div>

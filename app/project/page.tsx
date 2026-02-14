@@ -18,11 +18,11 @@ export default function Projects() {
                         className="object-cover"
                         priority
                     />
-                    {/* Dark gradient overlay */}
+                    
                     <div className="absolute inset-0 bg-black/50" />
                 </div>
 
-                {/* Content Container */}
+               
                 <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-24 h-full flex flex-col justify-center">
                     <div className="flex flex-col h-full justify-between py-20">
                         <div className="text-white text-center md:text-left self-start mt-12 md:mt-0">
@@ -42,10 +42,10 @@ export default function Projects() {
                 </div>
             </section>
 
-            {/* Ongoing Projects Section */}
+         
             <OngoingProjects />
 
-            {/* Completed Projects Section */}
+           
             <CompletedProjects />
         </main>
 
