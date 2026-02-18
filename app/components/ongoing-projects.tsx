@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from "next/image";
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import EnquireModal from './enquire-modal';
 
 const PROJECTS = [
@@ -51,56 +51,72 @@ export default function OngoingProjects() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-[#121212]">
             <div className="container mx-auto px-6 md:px-12 lg:px-10">
 
                 <div className="mb-12">
                     <div className="flex items-center gap-4 mb-4">
-                        <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-xs">Projects</span>
-                        <div className="h-[2px] w-12 bg-[#3A5D8F]"></div>
+                        <span className="text-[#C5A265] font-bold uppercase tracking-widest text-xs">Projects</span>
+                        <div className="h-[2px] w-12 bg-[#C5A265]"></div>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-serif text-[#1B2B41] font-bold">Ongoing Projects</h2>
+                    <h2 className="text-3xl md:text-5xl font-serif text-white font-bold">Ongoing Projects</h2>
                 </div>
-
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {PROJECTS.map((project, index) => (
-                        <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-row hover:shadow-xl transition-shadow duration-300 border border-gray-100 h-full">
+                        <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
 
-                            <div className="relative w-2/5 min-h-full">
+                            {/* Image Section */}
+                            <div className="relative w-full h-[280px]">
                                 <Image
                                     src={project.image}
                                     alt={project.title}
                                     fill
-                                    className="object-cover"
+                                    className="object-cover transition-transform duration-500 group-hover:scale-110"
                                 />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                                {/* Floating Badge - positioned to overlap image and content */}
+                                {project.newlyAdded && (
+                                    <div className="absolute -bottom-6 left-6 z-10 bg-[#C5A265] text-white rounded-lg px-4 py-3 shadow-lg flex flex-col items-center justify-center min-w-[70px]">
+                                        <span className="text-2xl font-bold leading-none">NEW</span>
+                                        <span className="text-[10px] uppercase font-medium tracking-wider mt-1">Arrival</span>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Content Section */}
-                            <div className="p-4 flex-1 flex flex-col relative">
-                                <div className="flex flex-col items-start mb-2">
-                                    {project.newlyAdded && (
-                                        <span className="mb-2 px-3 py-0.5 rounded-full border border-[#3A5D8F] text-[#3A5D8F] text-[10px] font-bold uppercase tracking-wider">
-                                            Newly Added
-                                        </span>
-                                    )}
-                                    <h3 className="text-xl font-serif font-bold text-[#1B2B41] leading-tight">{project.title}</h3>
+                            <div className="pt-10 pb-6 px-6 flex flex-col flex-grow relative">
+                                {/* Top Meta */}
+                                <div className="flex items-center gap-3 mb-3 pl-[80px] min-h-[40px]">
+                                    <div className="flex flex-col">
+                                        <span className="text-xs text-gray-400 font-medium">By Space Builder</span>
+                                        <div className="flex items-center gap-1.5 text-xs text-gray-500 font-medium mt-0.5">
+                                            <span>★ Residential</span>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div className="space-y-1.5 mb-6">
-                                    {Object.entries(project.details).map(([key, value]) => (
-                                        <div key={key} className="flex items-start text-xs text-gray-600 border-b border-dashed border-gray-200 pb-1 last:border-0">
-                                            <span className="font-bold text-[#1B2B41] w-20 shrink-0">{key} :</span>
-                                            <span className="leading-tight">{value}</span>
-                                        </div>
-                                    ))}
+                                <h3 className="text-xl font-serif font-bold text-gray-900 leading-tight mb-3 mt-2">{project.title}</h3>
+
+                                <div className="text-sm text-gray-600 mb-4 line-clamp-2">
+                                    <span className="font-semibold text-gray-700">Config:</span> {project.details.Apartment} <span className="mx-1">•</span> <span className="font-semibold text-gray-700">Size:</span> {project.details["Flat area"]}
+                                </div>
+
+                                <div className="flex flex-wrap gap-2 mb-6">
+                                    <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">
+                                        {project.details.Status}
+                                    </span>
+                                    <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">
+                                        {project.details["Project size"]}
+                                    </span>
                                 </div>
 
                                 <button
                                     onClick={() => setIsModalOpen(true)}
-                                    className="mt-auto w-8 h-8 bg-[#4A77B5] rounded-full flex items-center justify-center text-white hover:bg-[#3a6299] transition-colors shadow-md"
+                                    className="mt-auto flex items-center gap-2 text-[#C5A265] font-bold text-sm hover:translate-x-1 transition-transform cursor-pointer w-fit"
                                 >
-                                    <ArrowUpRight size={16} />
+                                    Read More <ArrowRight className="w-4 h-4" />
                                 </button>
                             </div>
                         </div>

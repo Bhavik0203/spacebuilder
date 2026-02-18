@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Facebook, Instagram, Twitter, Youtube, Phone, Mail, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -11,16 +12,15 @@ export default function Footer() {
 
                     {/* Column 1: Logo, Description, Socials */}
                     <div className="w-full md:w-1/3 mb-8 md:mb-0 pr-0 md:pr-8">
-                        <div className="bg-white p-4 inline-block mb-6">
-                            {/* Placeholder for Logo - In a real scenario, use <Image /> */}
-                            <div className="text-[#4a77b5] font-bold text-2xl tracking-widest uppercase flex items-center gap-2">
-                                <span className="text-4xl">SPACE</span>
-                            </div>
-                            <div className="text-[10px] text-gray-500 tracking-[0.3em] font-semibold text-center mt-1">
-                                BUILDERS GROUP
-                            </div>
-                        </div>
-
+                        <Link href="/" className="relative block w-48 h-16 bg-white p-2 rounded mb-6">
+                            <Image
+                                src="/images/logo.png"
+                                alt="Space Builder Logo"
+                                fill
+                                className="object-contain"
+                                priority
+                            />
+                        </Link>
                         <p className="text-sm leading-relaxed mb-6 max-w-sm">
                             Since its inception in 1995, Space Builders has aimed at Redefining Luxury across mid - segment housing by inventing, discovering & delivering contemporary lifestyle solutions.
                         </p>

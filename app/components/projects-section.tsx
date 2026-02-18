@@ -16,7 +16,8 @@ const PROJECTS = [
         area: '682 Sq.ft. Onwards',
         size: '250 units',
         status: 'Ongoing',
-        logo: '37 GRANDSTAND'
+        logo: '37 GRANDSTAND',
+        link: 'https://37grandstand.com/'
     },
     {
         id: 2,
@@ -41,22 +42,152 @@ const PROJECTS = [
         apartment: '2 & 3 Bed Residences',
         area: '750 Sq.ft. Onwards',
         size: '150 units',
-        status: 'Completed',
+        status: 'Ongoing',
         logo: 'GRAZIA'
     },
     {
         id: 4,
-        title: '37 GRANDSTAND',
-        location: 'PANCARD CLUB ROAD, BANER',
-        image: '/images/banner.png',
-        towers: '1',
-        storey: '20',
-        apartment: '2 & 3 Bed Residences',
-        area: '682 Sq.ft. Onwards',
-        size: '250 units',
-        status: 'Ongoing',
-        logo: '37 GRANDSTAND'
+        title: "AVIVA",
+        location: "Hinjewadi Phase I",
+        image: "/images/banner2.png",
+        towers: "1",
+        storey: "11",
+        apartment: "1 & 2 Bed Residences",
+        area: "N/A",
+        size: "105 units",
+        status: "Ongoing",
+        logo: "AVIVA"
     },
+    {
+        id: 5,
+        title: "Shivom Regency",
+        location: "Baner",
+        image: "/images/banner.png",
+        towers: "1",
+        storey: "10",
+        apartment: "Showrooms & Commercial Office Spaces",
+        area: "N/A",
+        size: "50 units",
+        status: "Completed",
+        logo: "Shivom Regency"
+    },
+    {
+        id: 6,
+        title: "Kulshree",
+        location: "Balewadi",
+        image: "/images/banner1.png",
+        towers: "1",
+        storey: "4",
+        apartment: "2 Bed Residences",
+        area: "N/A",
+        size: "16 units",
+        status: "Completed",
+        logo: "Kulshree"
+    },
+    {
+        id: 7,
+        title: "Myra",
+        location: "Wadgaonsheri",
+        image: "/images/banner2.png",
+        towers: "1",
+        storey: "5",
+        apartment: "2 & 3 Bed Residences",
+        area: "N/A",
+        size: "30 units",
+        status: "Completed",
+        logo: "Myra"
+    },
+    {
+        id: 8,
+        title: "West Wind Park",
+        location: "Hinjewadi Phase I",
+        image: "/images/banner.png",
+        towers: "1",
+        storey: "10",
+        apartment: "1 & 2 Bed Residences",
+        area: "N/A",
+        size: "75 units",
+        status: "Completed",
+        logo: "West Wind Park"
+    },
+    {
+        id: 9,
+        title: "Mystique",
+        location: "Wadgaonsheri",
+        image: "/images/banner1.png",
+        towers: "1",
+        storey: "4",
+        apartment: "2 & 3 Bed Residences",
+        area: "N/A",
+        size: "24 units",
+        status: "Completed",
+        logo: "Mystique"
+    },
+    {
+        id: 10,
+        title: "Madhav Baugh",
+        location: "Hadapsar",
+        image: "/images/banner2.png",
+        towers: "7",
+        storey: "5",
+        apartment: "2 Bed Residences",
+        area: "N/A",
+        size: "105 units",
+        status: "Completed",
+        logo: "Madhav Baugh"
+    },
+    {
+        id: 11,
+        title: "Marigold",
+        location: "Sinhagad Road",
+        image: "/images/banner.png",
+        towers: "1",
+        storey: "8",
+        apartment: "2 Bed Residences",
+        area: "N/A",
+        size: "45 units",
+        status: "Completed",
+        logo: "Marigold"
+    },
+    {
+        id: 12,
+        title: "Alankar",
+        location: "Dhankawdi",
+        image: "/images/banner1.png",
+        towers: "1",
+        storey: "7",
+        apartment: "2 & 2.5 BHK",
+        area: "N/A",
+        size: "25 units",
+        status: "Completed",
+        logo: "Alankar"
+    },
+    {
+        id: 13,
+        title: "Madhav Classic",
+        location: "Aundh",
+        image: "/images/banner2.png",
+        towers: "1",
+        storey: "5",
+        apartment: "3 BHK",
+        area: "N/A",
+        size: "10 units",
+        status: "Completed",
+        logo: "Madhav Classic"
+    },
+    {
+        id: 14,
+        title: "Mahalasa",
+        location: "Bhusari colony",
+        image: "/images/banner.png",
+        towers: "1",
+        storey: "5",
+        apartment: "2 & 3 BHK",
+        area: "N/A",
+        size: "20 units",
+        status: "Completed",
+        logo: "Mahalasa"
+    }
 ];
 
 const ProjectsSection = () => {
@@ -64,7 +195,7 @@ const ProjectsSection = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(1);
     const scrollContainerRef = React.useRef<HTMLDivElement>(null);
 
-    const filteredProjects = PROJECTS;
+    const filteredProjects = PROJECTS.filter(project => project.status === activeTab);
 
     const scrollLeft = () => {
         if (scrollContainerRef.current) {
@@ -79,7 +210,7 @@ const ProjectsSection = () => {
     };
 
     return (
-        <section className="py-20 bg-white overflow-hidden">
+        <section className="py-10 bg-white overflow-hidden">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
 
                 {/* Header */}
@@ -191,9 +322,20 @@ const ProjectsSection = () => {
                                         </div>
                                     </div>
 
-                                    <button className="border border-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors">
-                                        Discover More
-                                    </button>
+                                    {project.link ? (
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="border border-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors inline-block"
+                                        >
+                                            Discover More
+                                        </a>
+                                    ) : (
+                                        <button className="border border-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors">
+                                            Discover More
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         ))}

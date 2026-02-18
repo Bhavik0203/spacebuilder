@@ -59,7 +59,7 @@ const Banner = () => {
     const slide = SLIDES[currentSlide];
 
     return (
-        <div className="relative w-full h-screen overflow-hidden bg-black z-0">
+        <div className="relative w-full h-[100vh] overflow-hidden bg-black z-0">
             {/* Background Images with Fade Transition */}
             {SLIDES.map((s, index) => (
                 <div
@@ -80,7 +80,7 @@ const Banner = () => {
             ))}
 
             {/* Main Content Area */}
-            <div className="relative z-10 h-full flex flex-col justify-end px-6 md:px-12 lg:px-24 pb-48">
+            <div className="relative z-10 h-full flex flex-col justify-start px-6 md:px-12 lg:px-24 pt-20">
                 <div className="max-w-4xl space-y-4 animate-fade-in">
                     <h1 className="text-white font-serif leading-tight transition-all duration-500 transform translate-y-0 opacity-100">
                         <span className="text-5xl md:text-7xl font-bold tracking-wide block mb-2">{slide.title}</span>
@@ -90,8 +90,8 @@ const Banner = () => {
                         {slide.location}
                     </p>
 
-                    <div className="pt-4 pl-1">
-                        <button className="group flex items-center gap-3 px-8 py-3.5 border border-white/80 text-white hover:bg-white hover:text-black transition-all duration-300">
+                    <div className="pt-2 pl-1">
+                        <button className="group flex items-center gap-3 px-8 py-2 border border-white/80 text-white hover:bg-white hover:text-black transition-all duration-300">
                             <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
                             <span className="uppercase tracking-widest text-sm font-semibold">Download Brochure</span>
                         </button>

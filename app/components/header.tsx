@@ -43,10 +43,10 @@ const Header = () => {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-12">
-                        {['Home', 'Project', 'Amenities', 'Gallery', 'Location'].map((item) => (
+                        {['Home', 'About', 'Project', 'Contact'].map((item) => (
                             <Link
                                 key={item}
-                                href={`#${item.toLowerCase()}`}
+                                href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
                                 className="text-white/90 hover:text-yellow-400 text-sm uppercase tracking-widest transition-colors font-medium relative group"
                             >
                                 {item}
