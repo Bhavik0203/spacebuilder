@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { getProjectLink } from '../lib/project-links';
 
 const PROJECTS = [
     {
@@ -17,7 +18,21 @@ const PROJECTS = [
         size: '250 units',
         status: 'Ongoing',
         logo: '37 GRANDSTAND',
-        link: 'https://37grandstand.com/'
+        link: getProjectLink('37 GRANDSTAND') ?? 'https://37grandstand.com/'
+    },
+    {
+        id: 1.5,
+        title: 'Codename Hotspot',
+        location: 'Baner, Pune',
+        image: '/images/banner.png',
+        towers: 'N/A',
+        storey: 'N/A',
+        apartment: 'Signature Office Spaces',
+        area: 'N/A',
+        size: 'N/A',
+        status: 'Ongoing',
+        logo: 'CODENAME HOTSPOT',
+        link: getProjectLink('Codename Hotspot')
     },
     {
         id: 2,

@@ -3,14 +3,22 @@
 
 import Link from 'next/link';
 import { Building2, Home, MapPin, Warehouse } from 'lucide-react';
+import { getProjectLink } from '../lib/project-links';
 
 const ongoingProjects = [
     {
         title: "37 GRANDSTAND",
         description: "4 & 3 Bed Bespoke Residences with trusted luxury",
         icon: Building2,
-        href: "/project/37-grandstand",
+        href: getProjectLink("37 GRANDSTAND") ?? "/project/37-grandstand",
         color: "text-amber-400"
+    },
+    {
+        title: "Codename Hotspot",
+        description: "Signature Office Spaces @ Baner",
+        icon: Warehouse,
+        href: getProjectLink("Codename Hotspot") ?? "/project/codename-hotspot",
+        color: "text-yellow-400"
     },
     {
         title: "Grazia",
@@ -46,23 +54,45 @@ export default function ProjectsDropdown() {
 
                 <div className="grid grid-cols-2 gap-4">
                     {ongoingProjects.map((project, idx) => (
-                        <Link
-                            key={idx}
-                            href={project.href}
-                            className="group flex items-start p-3 rounded-lg hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/5"
-                        >
-                            <div className={`p-2.5 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors mr-4 ${project.color}`}>
-                                <project.icon className="w-6 h-6" />
-                            </div>
-                            <div>
-                                <h4 className="text-white font-medium group-hover:text-yellow-400 transition-colors">
-                                    {project.title}
-                                </h4>
-                                <p className="text-xs text-slate-400 mt-1 leading-relaxed line-clamp-2">
-                                    {project.description}
-                                </p>
-                            </div>
-                        </Link>
+                        project.href.startsWith('http') ? (
+                            <a
+                                key={idx}
+                                href={project.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-start p-3 rounded-lg hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/5"
+                            >
+                                <div className={`p-2.5 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors mr-4 ${project.color}`}>
+                                    <project.icon className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-medium group-hover:text-yellow-400 transition-colors">
+                                        {project.title}
+                                    </h4>
+                                    <p className="text-xs text-slate-400 mt-1 leading-relaxed line-clamp-2">
+                                        {project.description}
+                                    </p>
+                                </div>
+                            </a>
+                        ) : (
+                            <Link
+                                key={idx}
+                                href={project.href}
+                                className="group flex items-start p-3 rounded-lg hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/5"
+                            >
+                                <div className={`p-2.5 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors mr-4 ${project.color}`}>
+                                    <project.icon className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-medium group-hover:text-yellow-400 transition-colors">
+                                        {project.title}
+                                    </h4>
+                                    <p className="text-xs text-slate-400 mt-1 leading-relaxed line-clamp-2">
+                                        {project.description}
+                                    </p>
+                                </div>
+                            </Link>
+                        )
                     ))}
                 </div>
 

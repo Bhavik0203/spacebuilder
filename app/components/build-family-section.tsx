@@ -15,7 +15,7 @@ const CATEGORIES = [
         id: 2,
         title: 'APARTMENTS',
         description: 'Residential, villas, apartments, & commercial spaces everything you need, all in one place.',
-        icon: '/images/residential-2.png'
+        icon: '/images/residential.png'
     },
     {
         id: 3,

@@ -6,7 +6,7 @@ import Image from 'next/image';
 const PARTNERS = [
     { id: 1, name: 'Partner 1', logo: '/images/clints/Frame-42.png' },
     { id: 2, name: 'Partner 2', logo: '/images/clints/Frame-43.png' },
-    { id: 3, name: 'Partner 3', logo: '/images/clints/Frame-44.png' },
+    { id: 3, name: 'Partner 3', logo: '/images/clints/Frame-48.png' },
     { id: 4, name: 'Partner 4', logo: '/images/clints/Frame-45.png' },
     { id: 5, name: 'Partner 5', logo: '/images/clints/Frame-46.png' },
     { id: 6, name: 'Partner 6', logo: '/images/clints/Frame-48.png' },

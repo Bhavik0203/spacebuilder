@@ -63,7 +63,7 @@ export default function Footer() {
                         <ul className="space-y-6">
                             <li className="flex items-center gap-3">
                                 <Phone size={18} className="shrink-0" />
-                                <span>+91 000 000 0000</span>
+                                <span>+91 98765 43210</span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail size={18} className="shrink-0" />
@@ -81,7 +81,7 @@ export default function Footer() {
 
                 {/* Footer Bottom */}
                 <div className="mt-16 pt-8 border-t border-blue-300/50 text-center text-sm">
-                    <p>@2025 Space builder .All Rights Reserved.Designed by Digitallize the Glob</p>
+                    <p>@2025 Space builder .All Rights Reserved.Designed by Digitallize the Globe</p>
                 </div>
             </div>
         </footer>

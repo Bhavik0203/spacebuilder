@@ -1,6 +1,11 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
+import ScheduleVisitModal from './schedule-visit-modal';
 
 const ScheduleVisitSection = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <section className="bg-[#3A5D8F] py-16">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
@@ -20,15 +25,24 @@ const ScheduleVisitSection = () => {
 
                     {/* Button */}
                     <div className="shrink-0">
-                        <button className="px-8 py-3 border border-white text-white text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors duration-300">
+                        <button
+                            onClick={() => setIsModalOpen(true)}
+                            className="px-8 py-3 border border-white text-white text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors duration-300"
+                        >
                             Request a Viewing
                         </button>
                     </div>
 
                 </div>
             </div>
+
+            <ScheduleVisitModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
         </section>
     );
 };
 
 export default ScheduleVisitSection;
+
