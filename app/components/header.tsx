@@ -1,14 +1,24 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, Phone } from 'lucide-react';
+import { Menu, Phone, ChevronDown } from 'lucide-react';
 import EnquireModal from './enquire-modal';
+import ProjectsDropdown from './projects-dropdown';
 
 const Header = () => {
     const [showSecondHeader, setShowSecondHeader] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    const navItems = [
+        { name: 'Home', href: '/' },
+        { name: 'About', href: '/about' },
+        { name: 'Project', href: '/project', hasDropdown: true },
+        { name: 'Contact', href: '/contact' }
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -25,6 +35,17 @@ const Header = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    const handleMouseEnter = (name: string) => {
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        setActiveDropdown(name);
+    };
+
+    const handleMouseLeave = () => {
+        timeoutRef.current = setTimeout(() => {
+            setActiveDropdown(null);
+        }, 200);
+    };
 
     // First Header State (Original Design)
     if (!showSecondHeader) {
@@ -43,15 +64,28 @@ const Header = () => {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex items-center space-x-12">
-                        {['Home', 'About', 'Project', 'Contact'].map((item) => (
-                            <Link
-                                key={item}
-                                href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                                className="text-white/90 hover:text-yellow-400 text-sm uppercase tracking-widest transition-colors font-medium relative group"
+                        {navItems.map((item) => (
+                            <div
+                                key={item.name}
+                                className="relative group"
+                                onMouseEnter={() => item.hasDropdown && handleMouseEnter(item.name)}
+                                onMouseLeave={() => item.hasDropdown && handleMouseLeave()}
                             >
-                                {item}
-                                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full" />
-                            </Link>
+                                <Link
+                                    href={item.href}
+                                    className="text-white/90 hover:text-yellow-400 text-sm uppercase tracking-widest transition-colors font-medium relative group flex items-center gap-1"
+                                >
+                                    {item.name}
+                                    {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
+                                    <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full" />
+                                </Link>
+
+                                {item.hasDropdown && activeDropdown === item.name && (
+                                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-auto">
+                                        <ProjectsDropdown />
+                                    </div>
+                                )}
+                            </div>
                         ))}
                     </nav>
 
@@ -100,15 +134,28 @@ const Header = () => {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center space-x-12">
-                    {['Home', 'About', 'Project', 'Contact'].map((item) => (
-                        <Link
-                            key={item}
-                            href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                            className={`text-base font-bold transition-colors ${item === 'Home' ? 'text-[#4a77b5]' : 'text-black hover:text-[#4a77b5]'
-                                }`}
+                    {navItems.map((item) => (
+                        <div
+                            key={item.name}
+                            className="relative group"
+                            onMouseEnter={() => item.hasDropdown && handleMouseEnter(item.name)}
+                            onMouseLeave={() => item.hasDropdown && handleMouseLeave()}
                         >
-                            {item}
-                        </Link>
+                            <Link
+                                href={item.href}
+                                className={`text-base font-bold transition-colors flex items-center gap-1 ${item.name === 'Home' ? 'text-[#4a77b5]' : 'text-black hover:text-[#4a77b5]'
+                                    }`}
+                            >
+                                {item.name}
+                                {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
+                            </Link>
+
+                            {item.hasDropdown && activeDropdown === item.name && (
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-auto">
+                                    <ProjectsDropdown />
+                                </div>
+                            )}
+                        </div>
                     ))}
                 </nav>
 

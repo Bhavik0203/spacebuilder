@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const CorporateOverview = () => {
     return (
-        <div style={{backgroundImage: "url('/images/banner.png')"}}>
+        <div style={{backgroundImage: "url('/images/about-bg.png')"}}>
              <section className="relative z-20 pt-12 -mt-32 md:-mt-48 overflow-hidden bg-transparent">
             <div className="container mr-auto pr-6 md:pr-12 lg:pr-18">
                 <div className="relative z-[999] w-full lg:w-3/4 bg-white px-8 md:px-20 py-8 md:py-12 space-y-12">
