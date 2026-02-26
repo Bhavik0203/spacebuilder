@@ -91,8 +91,8 @@ const Banner = () => {
                     </p>
 
                     <div className="pt-2 pl-1">
-                        <button className="group flex items-center gap-3 px-8 py-2 border border-white/80 text-white hover:bg-white hover:text-black transition-all duration-300">
-                            <Download className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                        <button className="group flex cursor-pointer items-center gap-3 px-8 py-2 border border-white/80 text-white hover:bg-white hover:text-black transition-all duration-300">
+                            <Download className="w-5 h-5 cursor-pointer group-hover:scale-110 transition-transform" />
                             <span className="uppercase tracking-widest text-sm font-semibold">Download Brochure</span>
                         </button>
                     </div>
@@ -160,7 +160,7 @@ const Banner = () => {
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/80'
+                        className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${currentSlide === index ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/80'
                             }`}
                         aria-label={`Go to slide ${index + 1}`}
                     />
@@ -176,7 +176,7 @@ const Banner = () => {
             </button>
             <button
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full border border-white/20 text-white/50 hover:bg-white/10 hover:text-white transition-all hidden md:block"
+                className="absolute right-4 cursor-pointer top-1/2 -translate-y-1/2 z-20 p-2 rounded-full border border-white/20 text-white/50 hover:bg-white/10 hover:text-white transition-all hidden md:block"
             >
                 <ChevronRight className="w-8 h-8" />
             </button>

@@ -99,7 +99,7 @@ const TestimonialsSection = () => {
                         <button
                             key={index}
                             onClick={() => setCurrentIndex(index)}
-                            className={`h-2 w-2 rounded-full transition-all duration-300 ${index === currentIndex ? 'w-8 bg-[#3A5D8F]' : 'bg-[#3A5D8F]/30 hover:bg-[#3A5D8F]/50'
+                            className={`h-2 w-2 rounded-full cursor-pointer transition-all duration-300 ${index === currentIndex ? 'w-8 bg-[#3A5D8F]' : 'bg-[#3A5D8F]/30 hover:bg-[#3A5D8F]/50'
                                 }`}
                             aria-label={`Go to testimonial ${index + 1}`}
                         />

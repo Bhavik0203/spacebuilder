@@ -51,8 +51,8 @@ export default function ScheduleVisitModal({ isOpen, onClose }: ScheduleVisitMod
                 {/* Close Button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-6 right-6 p-2 bg-[#4A77B5] text-white rounded hover:bg-[#3a6299] transition-colors shadow-md"
-                >
+                    className="absolute top-6 cursor-pointer right-6 p-2 bg-[#4A77B5] text-white rounded hover:bg-[#3a6299] transition-colors shadow-md"
+                      >
                     <X size={24} />
                 </button>
 
@@ -141,7 +141,7 @@ export default function ScheduleVisitModal({ isOpen, onClose }: ScheduleVisitMod
 
                         <button
                             type="submit"
-                            className="bg-[#4A77B5] text-white w-full py-3 font-bold uppercase tracking-widest hover:bg-[#3a6299] transition-colors rounded shadow-sm mt-4"
+                            className="bg-[#4A77B5] cursor-pointer text-white w-full py-3 font-bold uppercase tracking-widest hover:bg-[#3a6299] transition-colors rounded shadow-sm mt-4"
                         >
                             Confirm Visit Request
                         </button>

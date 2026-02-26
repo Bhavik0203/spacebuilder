@@ -38,7 +38,7 @@ export default function LocationSection() {
                     <h3 className="text-white text-lg md:text-xl font-medium text-center md:text-left">
                         Are You interested in staying informed about this property?
                     </h3>
-                    <button className="border border-white text-white px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors rounded-sm">
+                    <button className="border cursor-pointer border-white text-white px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors rounded-sm">
                         SUBSCRIBE
                     </button>
                 </div>

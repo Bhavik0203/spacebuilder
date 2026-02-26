@@ -55,7 +55,7 @@ const GallerySection = () => {
                     {/* Prev Button */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-0 md:left-4 z-20 w-12 h-12 bg-[#3A5D8F] rounded-full flex items-center justify-center text-white shadow-lg hover:bg-[#2c476e] transition-colors"
+                        className="absolute cursor-pointer left-0 md:left-4 z-20 w-12 h-12 bg-[#3A5D8F] rounded-full flex items-center justify-center text-white shadow-lg hover:bg-[#2c476e] transition-colors"
                     >
                         <ChevronLeft className="w-6 h-6" />
                     </button>

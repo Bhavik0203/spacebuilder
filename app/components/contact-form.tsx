@@ -125,7 +125,7 @@ export default function ContactForm() {
                             <span className="text-gray-400 text-sm">Please check the box to confirm interest in call back for your inquiry.</span>
                         </label>
 
-                        <button className="bg-[#4A77B5] text-white px-10 py-3 text-sm font-bold uppercase tracking-widest hover:bg-[#3a6299] transition-colors rounded shadow-sm w-full md:w-auto">
+                        <button className="bg-[#4A77B5] cursor-pointer text-white px-10 py-3 text-sm font-bold uppercase tracking-widest hover:bg-[#3a6299] transition-colors rounded shadow-sm w-full md:w-auto">
                             Submit
                         </button>
                     </div>

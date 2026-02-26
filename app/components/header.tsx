@@ -91,20 +91,20 @@ const Header = () => {
 
                     {/* Actions */}
                     <div className="flex items-center gap-6">
-                        <button className="hidden md:flex items-center gap-2 text-white hover:text-yellow-400 transition-colors group">
+                        <button className="hidden cursor-pointer md:flex items-center gap-2 text-white hover:text-yellow-400 transition-colors group">
                             <div className="p-2 border border-white/30 rounded-full group-hover:border-yellow-400 transition-colors">
                                 <Phone className="w-4 h-4" />
                             </div>
                             <span className="text-sm tracking-wide font-medium">+91 98765 43210</span>
                         </button>
 
-                        <button className="md:hidden text-white hover:text-yellow-400 transition-colors">
+                        <button className="cursor-pointer md:hidden text-white hover:text-yellow-400 transition-colors">
                             <Menu className="w-8 h-8" />
                         </button>
 
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="hidden md:block bg-white text-black px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:bg-yellow-400 hover:text-black transition-all duration-300 transform hover:-translate-y-0.5"
+                            className="hidden md:block cursor-pointer bg-white text-black px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:bg-yellow-400 hover:text-black transition-all duration-300 transform hover:-translate-y-0.5"
                         >
                             Enquire Now
                         </button>
@@ -162,18 +162,18 @@ const Header = () => {
                 {/* Actions */}
                 <div className="flex items-center gap-6">
                     {/* WhatsApp Icon */}
-                    <button className="hidden md:flex items-center justify-center w-10 h-10 bg-[#4a77b5] rounded-full text-white hover:opacity-90 transition-opacity">
+                    <button className="hidden cursor-pointer md:flex items-center justify-center w-10 h-10 bg-[#4a77b5] rounded-full text-white hover:opacity-90 transition-opacity">
                         <Phone className="w-5 h-5 fill-current" />
                     </button>
 
-                    <button className="md:hidden text-black transition-colors">
+                    <button className="md:hidden cursor-pointer text-black transition-colors">
                         <Menu className="w-8 h-8" />
                     </button>
 
                     {/* Enquire Button */}
                     <button
                         onClick={() => setIsModalOpen(true)}
-                        className="hidden md:block bg-[#4a77b5] text-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-[#3a6299] transition-all duration-300"
+                        className="hidden md:block cursor-pointer bg-[#4a77b5] text-white px-8 py-3 text-sm font-bold uppercase tracking-wider hover:bg-[#3a6299] transition-all duration-300"
                     >
                         ENQUIRE NOW
                     </button>

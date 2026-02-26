@@ -243,13 +243,13 @@ const ProjectsSection = () => {
                     <div className="flex gap-8 mt-6 md:mt-0 text-lg font-serif">
                         <button
                             onClick={() => setActiveTab('Ongoing')}
-                            className={`pb-2 transition-colors ${activeTab === 'Ongoing' ? 'text-[#1B2B41] font-bold border-b-2 border-[#1B2B41]' : 'text-gray-400'}`}
+                            className={`pb-2 transition-colors ${activeTab === 'Ongoing' ? 'text-[#1B2B41] cursor-pointer font-bold border-b-2 border-[#1B2B41]' : 'text-gray-400'}`}
                         >
                             Ongoing
                         </button>
                         <button
                             onClick={() => setActiveTab('Completed')}
-                            className={`pb-2 transition-colors ${activeTab === 'Completed' ? 'text-[#1B2B41] font-bold border-b-2 border-[#1B2B41]' : 'text-gray-400'}`}
+                            className={`pb-2 transition-colors ${activeTab === 'Completed' ? 'text-[#1B2B41] cursor-pointer font-bold border-b-2 border-[#1B2B41]' : 'text-gray-400'}`}
                         >
                             Completed
                         </button>
@@ -261,13 +261,13 @@ const ProjectsSection = () => {
                     {/* Navigation Buttons */}
                     <button
                         onClick={scrollLeft}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/40 transition-all hidden md:block"
+                        className="absolute left-4 top-1/2 -translate-y-1/2  z-20 p-3 bg-white/20 cursor-pointer backdrop-blur-sm rounded-full text-white hover:bg-white/40 transition-all hidden md:block"
                     >
                         <ChevronLeft className="w-8 h-8 stroke-[1.5]" />
                     </button>
                     <button
                         onClick={scrollRight}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/40 transition-all hidden md:block"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 cursor-pointer bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/40 transition-all hidden md:block"
                     >
                         <ChevronRight className="w-8 h-8 stroke-[1.5]" />
                     </button>
@@ -347,7 +347,7 @@ const ProjectsSection = () => {
                                             Discover More
                                         </a>
                                     ) : (
-                                        <button className="border border-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors">
+                                        <button className="border cursor-pointer border-white px-8 py-3 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors">
                                             Discover More
                                         </button>
                                     )}

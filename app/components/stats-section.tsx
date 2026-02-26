@@ -25,7 +25,7 @@ const STATS = [
 
 const StatsSection = () => {
     return (
-        <section className="relative z-30 px-6 md:px-12 lg:px-24 mb-20 pointer-events-none">
+        <section className="relative z-30 px-6 md:px-12 lg:px-24 pointer-events-none bg-white">
             <div className="container mx-auto">
                 <div className="bg-white/90 backdrop-blur-sm shadow-xl rounded-lg py-4 px-8 md:px-16 pointer-events-auto">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 text-center">

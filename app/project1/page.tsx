@@ -209,7 +209,7 @@ export default function Project1Page() {
                   </span>
 
                   {/* Enquire button */}
-                  <button className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1f59a8] text-white text-xs md:text-sm font-semibold px-6 py-2 rounded-sm shadow-md hover:bg-[#174481] transition-colors">
+                  <button className="absolute left-1/2 cursor-pointer top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1f59a8] text-white text-xs md:text-sm font-semibold px-6 py-2 rounded-sm shadow-md hover:bg-[#174481] transition-colors">
                     Enquire Now
                   </button>
                 </div>
@@ -258,7 +258,7 @@ export default function Project1Page() {
           {/* Gallery strip */}
           <div className="flex items-center justify-center gap-4 md:gap-6">
             {/* Left arrow */}
-            <button className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#255b9e] text-white shadow-md hover:bg-[#18447a] transition-colors">
+            <button className="flex cursor-pointer items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#255b9e] text-white shadow-md hover:bg-[#18447a] transition-colors">
               <span className="-translate-x-[1px] text-lg">&#8249;</span>
             </button>
 
@@ -294,7 +294,7 @@ export default function Project1Page() {
             </div>
 
             {/* Right arrow */}
-            <button className="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#255b9e] text-white shadow-md hover:bg-[#18447a] transition-colors">
+            <button className="flex items-center cursor-pointer justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-[#255b9e] text-white shadow-md hover:bg-[#18447a] transition-colors">
               <span className="translate-x-[1px] text-lg">&#8250;</span>
             </button>
           </div>
@@ -311,7 +311,7 @@ export default function Project1Page() {
             </p>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="border border-white/70 bg-transparent px-5 py-2 text-xs md:text-sm font-semibold tracking-wide uppercase rounded-sm hover:bg-white hover:text-[#2c63a8] transition-colors"
+              className="border border-white/70 bg-transparent cursor-pointer px-5 py-2 text-xs md:text-sm font-semibold tracking-wide uppercase rounded-sm hover:bg-white hover:text-[#2c63a8] transition-colors"
             >
               Enquire Now
             </button>
@@ -451,7 +451,7 @@ export default function Project1Page() {
 
             {/* Submit button */}
             <div className="mt-4 flex justify-end">
-              <button className="bg-[#2c63a8] text-white text-xs md:text-sm font-semibold tracking-wide uppercase px-6 md:px-8 py-2.5 rounded-[2px] hover:bg-[#1f4b83] transition-colors">
+              <button className="bg-[#2c63a8] cursor-pointer text-white text-xs md:text-sm font-semibold tracking-wide uppercase px-6 md:px-8 py-2.5 rounded-[2px] hover:bg-[#1f4b83] transition-colors">
                 Register Your Interest
               </button>
             </div>

@@ -47,7 +47,7 @@ export default function FAQSection() {
                             {/* Question Header */}
                             <button
                                 onClick={() => toggleFAQ(index)}
-                                className={`w-full flex items-center justify-between px-6 py-4 transition-colors ${openIndex === index
+                                className={`w-full flex cursor-pointer items-center justify-between px-6 py-4 transition-colors ${openIndex === index
                                     ? 'bg-[#3A5D8F] text-white border border-[#3A5D8F]'
                                     : 'bg-[#3A5D8F] text-white hover:bg-[#32517d] border border-[#3A5D8F]'
                                     }`}

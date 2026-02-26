@@ -55,7 +55,7 @@ const CorporateOverview = () => {
                                         <div className="h-[1px] flex-grow bg-gray-300" />
                                     </div>
 
-                                    <button className="bg-[#4A6FA5] hover:bg-[#3A5D8F] text-white text-xs font-bold uppercase tracking-widest px-8 py-3 transition-all hover:shadow-lg">
+                                    <button className="bg-[#4A6FA5] cursor-pointer hover:bg-[#3A5D8F] text-white text-xs font-bold uppercase tracking-widest px-8 py-3 transition-all hover:shadow-lg">
                                         READ FOUNDER'S LETTER
                                     </button>
                                 </div>

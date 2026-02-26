@@ -27,7 +27,7 @@ const ScheduleVisitSection = () => {
                     <div className="shrink-0">
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="px-8 py-3 border border-white text-white text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors duration-300"
+                            className="px-8 py-3 border cursor-pointer border-white text-white text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors duration-300"
                         >
                             Request a Viewing
                         </button>

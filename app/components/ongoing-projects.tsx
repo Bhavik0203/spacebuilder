@@ -114,7 +114,7 @@ export default function OngoingProjects() {
 
                                 <button
                                     onClick={() => setIsModalOpen(true)}
-                                    className="mt-auto flex items-center gap-2 text-[#C5A265] font-bold text-sm hover:translate-x-1 transition-transform cursor-pointer w-fit"
+                                    className="mt-auto  flex items-center gap-2 text-[#C5A265] font-bold text-sm hover:translate-x-1 transition-transform cursor-pointer w-fit"
                                 >
                                     Read More <ArrowRight className="w-4 h-4" />
                                 </button>
