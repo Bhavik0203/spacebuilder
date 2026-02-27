@@ -173,12 +173,12 @@ export default function CompletedProjects() {
                                     ))}
                                 </div>
 
-                                <button
+                                {/* <button
                                     onClick={() => setIsModalOpen(true)}
                                     className="mt-auto w-8 h-8 bg-[#4A77B5] rounded-full flex items-center justify-center text-white hover:bg-[#3a6299] transition-colors shadow-md"
                                 >
                                     <ArrowUpRight size={16} />
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                     ))}

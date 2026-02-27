@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 
 const PARTNERS = [
@@ -13,8 +13,42 @@ const PARTNERS = [
 ];
 
 const PartnersSection = () => {
+    const [isPaused, setIsPaused] = useState(false);
+    const [pausedTransform, setPausedTransform] = useState('0px');
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    // Duplicate the partners array for seamless looping
+    const duplicatedPartners = [...PARTNERS, ...PARTNERS];
+
+    const handleLogoHover = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (containerRef.current) {
+            const containerRect = containerRef.current.getBoundingClientRect();
+            const scrollContainer = containerRef.current.querySelector('.flex');
+            if (scrollContainer) {
+                const computedStyle = window.getComputedStyle(scrollContainer);
+                const matrix = computedStyle.transform;
+                
+                if (matrix && matrix !== 'none') {
+                    const values = matrix.match(/matrix.*\((.+)\)/);
+                    if (values) {
+                        const matrixValues = values[1].split(', ');
+                        const currentTransform = parseFloat(matrixValues[4]) || 0;
+                        setPausedTransform(`${currentTransform}px`);
+                    }
+                } else {
+                    setPausedTransform('0px');
+                }
+            }
+        }
+        setIsPaused(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsPaused(false);
+    };
+
     return (
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white overflow-hidden">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
 
                 {/* Header */}
@@ -24,25 +58,55 @@ const PartnersSection = () => {
                         <div className="h-[2px] w-20 bg-[#3A5D8F]" />
                     </div>
                     <h2 className="text-4xl md:text-5xl font-serif text-[#1B2B41] font-bold">
-                        Trusted by the world’s best
+                        Trusted by the world's best
                     </h2>
                 </div>
 
-                {/* Logos Grid */}
-                <div className="flex flex-wrap md:flex-nowrap items-center justify-between gap-4 md:gap-8 lg:gap-12">
-                    {PARTNERS.map((partner) => (
-                        <div key={partner.id} className="relative h-16 md:h-20 w-28 md:w-32 lg:w-40 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
-                            <Image
-                                src={partner.logo}
-                                alt={partner.name}
-                                fill
-                                className="object-contain"
-                            />
+                {/* Sliding Logos Container */}
+                <div 
+                    ref={containerRef}
+                    className="relative"
+                    onMouseLeave={handleMouseLeave}
+                >
+                    <div className="overflow-hidden">
+                        <div 
+                            className="flex gap-8 lg:gap-12"
+                            style={{
+                                animation: isPaused ? 'none' : 'slide 20s linear infinite',
+                                transform: isPaused ? pausedTransform : undefined,
+                            }}
+                        >
+                            {duplicatedPartners.map((partner, index) => (
+                                <div 
+                                    key={`${partner.id}-${index}`} 
+                                    className="relative h-16 md:h-20 w-28 md:w-32 lg:w-40 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 flex-shrink-0"
+                                    onMouseEnter={handleLogoHover}
+                                >
+                                    <Image
+                                        src={partner.logo}
+                                        alt={partner.name}
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
 
             </div>
+
+            {/* Custom CSS for animation */}
+            <style jsx>{`
+                @keyframes slide {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(-50%);
+                    }
+                }
+            `}</style>
         </section>
     );
 };

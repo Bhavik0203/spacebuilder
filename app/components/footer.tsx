@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Youtube, Phone, Mail, MapPin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Phone, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 
 export default function Footer() {
@@ -26,17 +26,29 @@ export default function Footer() {
                         </p>
 
                         <div className="flex space-x-4">
-                            <Link href="#" className="border border-white p-2 hover:bg-white hover:text-[#4a77b5] transition-colors">
-                                <Twitter size={18} />
+                            <Link 
+                                href="https://www.instagram.com/space_builderspune/?hl=en" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="border border-white p-2 hover:bg-white hover:text-[#4a77b5] transition-colors"
+                            >
+                                <Instagram size={18} />
                             </Link>
-                            <Link href="#" className="border border-white p-2 hover:bg-white hover:text-[#4a77b5] transition-colors">
-                                <Youtube size={18} />
-                            </Link>
-                            <Link href="#" className="border border-white p-2 hover:bg-white hover:text-[#4a77b5] transition-colors">
+                            <Link 
+                                href="https://www.facebook.com/search/top?q=space%20builders%20%26%20developers" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="border border-white p-2 hover:bg-white hover:text-[#4a77b5] transition-colors"
+                            >
                                 <Facebook size={18} />
                             </Link>
-                            <Link href="#" className="border border-white p-2 hover:bg-white hover:text-[#4a77b5] transition-colors">
-                                <Instagram size={18} />
+                            <Link 
+                                href="https://www.linkedin.com/search/results/all/?keywords=space%20builders&origin=GLOBAL_SEARCH_HEADER&sid=HqA" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="border border-white p-2 hover:bg-white hover:text-[#4a77b5] transition-colors"
+                            >
+                                <Linkedin size={18} />
                             </Link>
                         </div>
                     </div>
@@ -81,7 +93,7 @@ export default function Footer() {
 
                 {/* Footer Bottom */}
                 <div className="mt-16 pt-8 border-t border-blue-300/50 text-center text-sm">
-                    <p>@2025 Space builder .All Rights Reserved.Designed by Digitallize the Globe</p>
+                    <p>@2025 Space builder .All Rights Reserved.Designed by <Link href="https://www.digitalizetheglobe.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-200 transition-colors">Digitallize the Globe</Link></p>
                 </div>
             </div>
         </footer>

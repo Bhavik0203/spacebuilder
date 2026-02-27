@@ -3,17 +3,17 @@
 import { useState } from "react";
 import Image from "next/image";
 import { MapPin } from "lucide-react";
-import EnquireModal from "../components/enquire-modal";
+import EnquireModal from "../../components/enquire-modal";
 
 const stats = [
-  { label: "Status", value: "Under Construction" },
+  { label: "Status", value: "Ongoing" },
   { label: "Location", value: "Baner, Pune" },
-  { label: "Price", value: "3 BHK: 2.19 Cr | 4 BHK: 2.89 Cr" },
-  { label: "Possession", value: "May 2027" },
-  { label: "Typology", value: "3 & 4 Bed Residences" },
+  { label: "Price", value: "2 BHK: 55 Lakhs | 3 BHK: 75 Lakhs" },
+  { label: "Possession", value: "October 2023" },
+  { label: "Typology", value: "2 & 3 Bed Residences" },
 ];
 
-export default function Project1Page() {
+export default function MeridienPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -22,8 +22,8 @@ export default function Project1Page() {
       <section className="relative bg-gradient-to-r from-[#0b1b33] via-[#13294b] to-[#1a3b6b] text-white pt-32 pb-16">
         <div className="absolute inset-0 opacity-10">
           <Image
-            src="/images/project-banner-bg.jpg"
-            alt="Bay 37 Grandstand banner background"
+            src="/images/64-meridien/11.jpg"
+            alt="64 Meridien banner background"
             fill
             priority
             className="object-cover"
@@ -34,11 +34,11 @@ export default function Project1Page() {
           <div className="space-y-3">
           
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
-              Bay 37 Grandstand
+              64 Meridien
             </h1>
             <p className="max-w-2xl text-sm md:text-base text-blue-100/80">
-              Premium 3 & 4 bed residences at Baner, Pune with panoramic views,
-              thoughtful amenities and contemporary architecture.
+              2 & 3 Bed Residences at Baner, Pune with contemporary lifestyle solutions.
+              Starting @ 55 & 75 Lakhs (all incl.)
             </p>
           </div>
 
@@ -68,7 +68,7 @@ export default function Project1Page() {
               About Us
             </p>
             <h2 className="text-2xl md:text-3xl font-semibold text-slate-900">
-              Bay 37 Grandstand
+              64 Meridien
             </h2>
             <p className="text-sm md:text-base leading-relaxed text-slate-600">
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -86,8 +86,8 @@ export default function Project1Page() {
 
           <div className="relative w-full h-60 md:h-80 lg:h-96 rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(15,23,42,0.35)]">
             <Image
-              src="/images/projects/bay-37-grandstand.jpg"
-              alt="Bay 37 Grandstand tower view"
+              src="/images/64-meridien/22.jpg"
+              alt="64 Meridien tower view"
               fill
               className="object-cover"
               priority
@@ -103,7 +103,7 @@ export default function Project1Page() {
           <div className="grid gap-10 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] items-start">
             <div className="relative w-full h-64 md:h-80 lg:h-[320px] rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(15,23,42,0.25)]">
               <Image
-                src="/images/projects/recreation-floor-main.jpg"
+                src="/images/64-meridien/33.jpg"
                 alt="Recreation floor amenities"
                 fill
                 className="object-cover"
@@ -128,13 +128,12 @@ export default function Project1Page() {
           </div>
 
           {/* Bottom: thumbnails */}
-          <div className="mt-8 md:mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          <div className="mt-8 md:mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {[
-              "/images/projects/recreation-thumb-1.jpg",
-              "/images/projects/recreation-thumb-2.jpg",
-              "/images/projects/recreation-thumb-3.jpg",
-              "/images/projects/recreation-thumb-4.jpg",
-              "/images/projects/recreation-thumb-5.jpg",
+              "/images/64-meridien/44.jpg",
+              "/images/64-meridien/55.jpg",
+              "/images/64-meridien/11.jpg",
+              "/images/64-meridien/22.jpg",
             ].map((src, index) => (
               <div
                 key={src}
@@ -172,22 +171,25 @@ export default function Project1Page() {
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
-                tag: "4 BHK",
-                title: "4 BHK",
-                carpet: "Carpet: 1935 Sq ft",
-                price: "₹ 2.99 Cr*",
+                tag: "2 BHK",
+                title: "2 BHK",
+                carpet: "Carpet: 1235 Sq ft",
+                price: "₹ 55 Lakhs*",
+                image: "/images/64-meridien/2bhk-daimond-3d.jpg"
               },
               {
-                tag: "4 BHK",
+                tag: "3 BHK",
                 title: "3 BHK",
-                carpet: "Carpet: 1933 Sq ft",
-                price: "₹ 2.99 Cr*",
+                carpet: "Carpet: 1533 Sq ft",
+                price: "₹ 75 Lakhs*",
+                image: "/images/64-meridien/2bhk-emerald-3d.jpg"
               },
               {
                 tag: "Typical Floor Plan",
                 title: "Typical Floor Plan",
                 carpet: "",
                 price: "",
+                image: "/images/64-meridien/2bhk-rubby-3d.jpg"
               },
             ].map((plan, index) => (
               <article
@@ -197,7 +199,7 @@ export default function Project1Page() {
                 {/* Image area */}
                 <div className="relative h-40 sm:h-44 bg-slate-300/70">
                   <Image
-                    src="/images/projects/floor-plan-placeholder.jpg"
+                    src={plan.image}
                     alt={`${plan.title} floor plan`}
                     fill
                     className="object-cover mix-blend-multiply"
@@ -266,7 +268,7 @@ export default function Project1Page() {
             <div className="flex items-center gap-4 md:gap-6 w-full max-w-4xl">
               <div className="relative flex-1 h-40 md:h-56 lg:h-64 rounded-sm overflow-hidden shadow-[0_12px_35px_rgba(15,23,42,0.18)]">
                 <Image
-                  src="/images/projects/gallery-left.jpg"
+                  src="/images/64-meridien/11.jpg"
                   alt="Living room view"
                   fill
                   className="object-cover"
@@ -275,7 +277,7 @@ export default function Project1Page() {
 
               <div className="relative flex-[1.5] h-48 md:h-64 lg:h-72 rounded-sm overflow-hidden shadow-[0_16px_45px_rgba(15,23,42,0.22)]">
                 <Image
-                  src="/images/projects/gallery-center.jpg"
+                  src="/images/64-meridien/22.jpg"
                   alt="Project aerial view"
                   fill
                   className="object-cover"
@@ -285,7 +287,7 @@ export default function Project1Page() {
 
               <div className="relative flex-1 h-40 md:h-56 lg:h-64 rounded-sm overflow-hidden shadow-[0_12px_35px_rgba(15,23,42,0.18)]">
                 <Image
-                  src="/images/projects/gallery-right.jpg"
+                  src="/images/64-meridien/33.jpg"
                   alt="Bedroom interior"
                   fill
                   className="object-cover"
@@ -320,14 +322,18 @@ export default function Project1Page() {
           {/* Bottom content */}
           <div className="bg-white rounded-b-lg shadow-[0_18px_45px_rgba(15,23,42,0.08)] overflow-hidden">
             <div className="grid md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-              {/* Map image */}
+              {/* Map iframe */}
               <div className="relative min-h-[260px] md:min-h-[300px] lg:min-h-[340px]">
-                <Image
-                  src="/images/projects/location-map.jpg"
-                  alt="Project location on map"
-                  fill
-                  className="object-cover"
-                />
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3118.4222008860543!2d73.78988307416915!3d18.506812169596397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfda4827d38d%3A0x7f568457213c459d!2sGrazia!5e1!3m2!1sen!2sin!4v1772196445868!5m2!1sen!2sin" 
+                  width="600" 
+                  height="450" 
+                  style={{border:0}} 
+                  allowFullScreen={true} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full rounded-t-lg"
+                ></iframe>
               </div>
 
               {/* Location list */}

@@ -90,12 +90,12 @@ const Banner = () => {
                         {slide.location}
                     </p>
 
-                    <div className="pt-2 pl-1">
+                    {/* <div className="pt-2 pl-1">
                         <button className="group flex cursor-pointer items-center gap-3 px-8 py-2 border border-white/80 text-white hover:bg-white hover:text-black transition-all duration-300">
                             <Download className="w-5 h-5 cursor-pointer group-hover:scale-110 transition-transform" />
                             <span className="uppercase tracking-widest text-sm font-semibold">Download Brochure</span>
                         </button>
-                    </div>
+                    </div> */}
 
                     <div className="pt-8 transition-all duration-500 delay-100">
                         <div className="bg-[#2C2F36]/95 backdrop-blur-md text-white py-6 px-8 md:px-12 rounded-lg shadow-2xl flex flex-col md:flex-row items-center gap-8 md:gap-12 border-t border-white/10 w-full md:w-auto inline-flex">
@@ -170,13 +170,13 @@ const Banner = () => {
             {/* Arrow Navigation */}
             <button
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full border border-white/20 text-white/50 hover:bg-white/10 hover:text-white transition-all hidden md:block"
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full border border-white/80 text-white/80 hover:bg-white/10 hover:text-white transition-all hidden md:block"
             >
                 <ChevronLeft className="w-8 h-8" />
             </button>
             <button
                 onClick={nextSlide}
-                className="absolute right-4 cursor-pointer top-1/2 -translate-y-1/2 z-20 p-2 rounded-full border border-white/20 text-white/50 hover:bg-white/10 hover:text-white transition-all hidden md:block"
+                className="absolute right-4 cursor-pointer top-1/2 -translate-y-1/2 z-20 p-2 rounded-full border border-white/80 text-white/80 hover:bg-white/10 hover:text-white transition-all hidden md:block"
             >
                 <ChevronRight className="w-8 h-8" />
             </button>
