@@ -4,12 +4,13 @@ import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 
 const PARTNERS = [
-    { id: 1, name: 'Partner 1', logo: '/images/clints/Frame-42.png' },
-    { id: 2, name: 'Partner 2', logo: '/images/clints/Frame-43.png' },
-    { id: 3, name: 'Partner 3', logo: '/images/clints/Frame-48.png' },
-    { id: 4, name: 'Partner 4', logo: '/images/clints/Frame-45.png' },
-    { id: 5, name: 'Partner 5', logo: '/images/clints/Frame-46.png' },
-    { id: 6, name: 'Partner 6', logo: '/images/clints/Frame-48.png' },
+    { id: 1, name: 'Partner 1', logo: '/images/clints/clint (1).jpeg' },
+    { id: 2, name: 'Partner 2', logo: '/images/clints/clint (2).jpeg' },
+    { id: 3, name: 'Partner 3', logo: '/images/clints/clint (3).jpeg' },
+    { id: 4, name: 'Partner 4', logo: '/images/clints/clint (4).jpeg' },
+    { id: 5, name: 'Partner 5', logo: '/images/clints/clint (5).jpeg' },
+    { id: 6, name: 'Partner 6', logo: '/images/clints/clint (6).jpeg' },
+    { id: 7, name: 'Partner 7', logo: '/images/clints/clint (7).jpeg' },
 ];
 
 const PartnersSection = () => {
@@ -22,7 +23,6 @@ const PartnersSection = () => {
 
     const handleLogoHover = (e: React.MouseEvent<HTMLDivElement>) => {
         if (containerRef.current) {
-            const containerRect = containerRef.current.getBoundingClientRect();
             const scrollContainer = containerRef.current.querySelector('.flex');
             if (scrollContainer) {
                 const computedStyle = window.getComputedStyle(scrollContainer);
@@ -33,10 +33,10 @@ const PartnersSection = () => {
                     if (values) {
                         const matrixValues = values[1].split(', ');
                         const currentTransform = parseFloat(matrixValues[4]) || 0;
-                        setPausedTransform(`${currentTransform}px`);
+                        setPausedTransform(`translateX(${currentTransform}px)`);
                     }
                 } else {
-                    setPausedTransform('0px');
+                    setPausedTransform('translateX(0px)');
                 }
             }
         }

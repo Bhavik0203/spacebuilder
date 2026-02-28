@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from 'react';
 import { Plane, Building2 } from 'lucide-react';
+import EnquireModal from './enquire-modal';
 
 const LOCATIONS = [
     {
@@ -30,6 +32,8 @@ const LOCATIONS = [
 ];
 
 export default function LocationSection() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <section>
             {/* Subscribe Bar */}
@@ -38,8 +42,11 @@ export default function LocationSection() {
                     <h3 className="text-white text-lg md:text-xl font-medium text-center md:text-left">
                         Are You interested in staying informed about this property?
                     </h3>
-                    <button className="border cursor-pointer border-white text-white px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors rounded-sm">
-                        SUBSCRIBE
+                    <button 
+                        onClick={() => setIsModalOpen(true)}
+                        className="border cursor-pointer border-white text-white px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors rounded-sm"
+                    >
+                        ENQUIRE NOW
                     </button>
                 </div>
             </div>
@@ -78,6 +85,12 @@ export default function LocationSection() {
                     </div>
                 </div>
             </div>
+
+            {/* Enquire Modal */}
+            <EnquireModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
         </section>
     );
 }

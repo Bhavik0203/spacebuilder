@@ -46,7 +46,7 @@ const CorporateOverview = () => {
                             />
                             <div className="absolute bottom-0 left-0 bg-white px-6 md:px-8 py-4 max-w-xl">
                                 <h3 className="text-xl md:text-2xl font-serif text-[#1B2B41] font-bold leading-tight mb-4">
-                                    "GOOD CONSTRUCTION is a science of combining ENGINEERING, ART and ECONOMICS."
+                                    “We are redefining real estate with innovation, integrity, and a vision for lasting value"
                                 </h3>
 
                                 <div className="space-y-6">
@@ -56,7 +56,7 @@ const CorporateOverview = () => {
                                     </div>
 
                                     <button className="bg-[#4A6FA5] cursor-pointer hover:bg-[#3A5D8F] text-white text-xs font-bold uppercase tracking-widest px-8 py-3 transition-all hover:shadow-lg">
-                                        READ FOUNDER'S LETTER
+                                       Know More About Us
                                     </button>
                                 </div>
                             </div>

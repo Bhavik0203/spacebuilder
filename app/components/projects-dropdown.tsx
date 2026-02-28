@@ -24,14 +24,14 @@ const ongoingProjects = [
         title: "Grazia",
         description: "3 & 2 Bed Residences for modern living",
         icon: Home,
-        href: "/project/grazia",
+        href: "/projects/grazia",
         color: "text-blue-400"
     },
     {
         title: "64 Meridien - Phase-II",
         description: "Premium 2 & 3 Bed Residences",
         icon: MapPin,
-        href: "/project/64-meridien",
+        href: "/projects/64-meridien",
         color: "text-emerald-400"
     }
 ];

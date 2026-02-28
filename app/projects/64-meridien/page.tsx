@@ -96,6 +96,34 @@ export default function MeridienPage() {
         </div>
       </section>
 
+      {/* Project Video */}
+      <section className="bg-white py-14 md:py-20">
+        <div className="max-w-6xl mx-auto px-4 lg:px-0">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-4">
+              Experience 64 Meridien
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Take a virtual tour of our premium 2 & 3 bed residences
+            </p>
+          </div>
+          
+          <div className="relative w-full h-64 md:h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(15,23,42,0.25)]">
+            <video
+              src="/images/64-meridien/video.mp4"
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
       {/* Amenities – Recreation Floor */}
       <section className="bg-[#f3f6fb] py-14 md:py-20">
         <div className="max-w-6xl mx-auto px-4 lg:px-0">

@@ -75,7 +75,12 @@ export default function Footer() {
                         <ul className="space-y-6">
                             <li className="flex items-center gap-3">
                                 <Phone size={18} className="shrink-0" />
-                                <span>+91 98765 43210</span>
+                                <a 
+                                  href="tel:+919876543210"
+                                  className="text-white hover:text-blue-200 transition-colors"
+                                >
+                                  +91 98765 43210
+                                </a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail size={18} className="shrink-0" />
@@ -83,9 +88,14 @@ export default function Footer() {
                             </li>
                             <li className="flex items-start gap-3">
                                 <MapPin size={18} className="shrink-0 mt-1" />
-                                <span className="leading-relaxed">
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                                </span>
+                                <a 
+                                  href="https://maps.google.com/?q=1,+Matai+chambers,+63+Erandwane,+Near+Mhatre+Bridge,+Pune,+Maharashtra,+India+411004"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="leading-relaxed text-white hover:text-blue-200 transition-colors"
+                                >
+                                  1, Matai chambers, 63 Erandwane, Near Mhatre Bridge, Pune, Maharashtra, India 411004
+                                </a>
                             </li>
                         </ul>
                     </div>
