@@ -353,7 +353,7 @@ export default function MeridienPage() {
               {/* Map iframe */}
               <div className="relative min-h-[260px] md:min-h-[300px] lg:min-h-[340px]">
                 <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3118.4222008860543!2d73.78988307416915!3d18.506812169596397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfda4827d38d%3A0x7f568457213c459d!2sGrazia!5e1!3m2!1sen!2sin!4v1772196445868!5m2!1sen!2sin" 
+                  src="https://www.google.com/maps/place/64+Meridien+C+Wing/@18.6544591,73.7278825,719m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bc2bb0789fa9baf:0x6d53d2dc1abb16fa!8m2!3d18.6544591!4d73.7304574!16s%2Fg%2F11sv1079gy?entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3D" 
                   width="600" 
                   height="450" 
                   style={{border:0}} 

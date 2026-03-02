@@ -8,12 +8,14 @@ import ByLocationSection from "./components/by-location-section";
 import GallerySection from "./components/gallery-section";
 import BuildFamilySection from "./components/build-family-section";
 import ScheduleVisitSection from "./components/schedule-visit-section";
+import ProductStyle from "./components/product-style";
 
 export default function Home() {
   return (
     <div>
       <Banner />
       <CorporateOverview />
+      <ProductStyle/>
       <ProjectsSection />
       <StatsSection />
       <ByLocationSection />

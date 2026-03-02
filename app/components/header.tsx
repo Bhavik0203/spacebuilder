@@ -55,11 +55,16 @@ const Header = () => {
 
                 <div className="container mx-auto px-6 py-6 relative z-10 flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="group flex flex-col items-center">
-                        <span className="font-serif text-2xl text-white tracking-widest font-bold group-hover:text-yellow-400 transition-colors">
-                            SPACE BUILDER
-                        </span>
-                        <div className="h-0.5 w-0 group-hover:w-full bg-yellow-400 transition-all duration-300" />
+                    <Link href="/" className="group flex items-center">
+                        <div className="relative w-32 h-12">
+                            <Image
+                                src="/images/whitelogo.png"
+                                alt="Space Builder"
+                                fill
+                                className="object-contain transition-transform duration-300 group-hover:scale-105"
+                            />
+                        </div>
+                        <div className="h-0.5 w-0 group-hover:w-full bg-yellow-400 transition-all duration-300 ml-4" />
                     </Link>
 
                     {/* Desktop Navigation */}

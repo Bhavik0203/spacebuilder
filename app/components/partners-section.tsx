@@ -79,7 +79,7 @@ const PartnersSection = () => {
                             {duplicatedPartners.map((partner, index) => (
                                 <div 
                                     key={`${partner.id}-${index}`} 
-                                    className="relative h-16 md:h-20 w-28 md:w-32 lg:w-40 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100 flex-shrink-0"
+                                    className="relative h-16 md:h-20 w-28 md:w-32 lg:w-40 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 flex-shrink-0 hover:bg-gray-100 rounded-lg p-2"
                                     onMouseEnter={handleLogoHover}
                                 >
                                     <Image
