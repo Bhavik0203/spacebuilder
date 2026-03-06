@@ -48,16 +48,23 @@ const TestimonialsSection = () => {
     }, []);
 
     return (
-        <section className="py-20 bg-[#EFF6FF]">
-            <div className="container mx-auto px-6 md:px-12 lg:px-24 text-center">
+        <section
+            className="relative px-4 py-10 bg-cover bg-center bg-no-repeat bg-fixed"
+            style={{ backgroundImage: "url('/images/banner1.png')" }}
+        >
+            {/* Black Overlay */}
+            <div className="absolute inset-0 bg-black/60"></div>
+            
+            <div className="relative z-10 container mx-auto px-6 md:px-12 lg:px-24 text-center">
 
                 {/* Header */}
                 <div className="flex flex-col items-center mb-12">
                     <div className="flex items-center gap-4 mb-4">
-                        <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-sm">Our Clients</span>
-                        <div className="h-[2px] w-20 bg-[#3A5D8F]" />
+                         <div className="h-[2px] w-20 bg-white" />
+                        <span className="text-white font-bold uppercase tracking-widest text-sm">Our Clients</span>
+                        <div className="h-[2px] w-20 bg-white" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-serif text-[#1B2B41] font-bold">
+                    <h2 className="text-4xl md:text-5xl font-serif text-white font-bold">
                         Testimonials
                     </h2>
                 </div>
@@ -71,21 +78,21 @@ const TestimonialsSection = () => {
                                 }`}
                         >
                             {/* Quote Icon */}
-                            <div className="text-[#3A5D8F]/20 mb-6">
+                            <div className="text-white/20 mb-6">
                                 <Quote size={80} fill="currentColor" />
                             </div>
 
                             {/* Text */}
-                            <p className="text-[#1B2B41] text-lg md:text-xl leading-relaxed font-medium mb-8 max-w-3xl">
+                            <p className="text-white text-lg md:text-xl leading-relaxed font-medium mb-8 max-w-3xl">
                                 {testimonial.text}
                             </p>
 
                             {/* Author */}
                             <div className="text-center">
-                                <h4 className="text-[#1B2B41] font-bold uppercase tracking-wide text-lg">
+                                <h4 className="text-white font-bold uppercase tracking-wide text-lg">
                                     {testimonial.name}
                                 </h4>
-                                <p className="text-[#3A5D8F] text-sm mt-1 font-medium">
+                                <p className="text-white/80 text-sm mt-1 font-medium">
                                     {testimonial.role}
                                 </p>
                             </div>
@@ -99,7 +106,7 @@ const TestimonialsSection = () => {
                         <button
                             key={index}
                             onClick={() => setCurrentIndex(index)}
-                            className={`h-2 w-2 rounded-full cursor-pointer transition-all duration-300 ${index === currentIndex ? 'w-8 bg-[#3A5D8F]' : 'bg-[#3A5D8F]/30 hover:bg-[#3A5D8F]/50'
+                            className={`h-2 w-2 rounded-full cursor-pointer transition-all duration-300 ${index === currentIndex ? 'w-8 bg-white' : 'bg-white/30 hover:bg-white/50'
                                 }`}
                             aria-label={`Go to testimonial ${index + 1}`}
                         />

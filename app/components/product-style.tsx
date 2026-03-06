@@ -1,8 +1,66 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from "framer-motion";
+import clsx from 'clsx';
+import dynamic from 'next/dynamic';
+
+// Dynamically import MapComponent with SSR disabled
+const MapComponent = dynamic(() => import('./MapComponent'), { 
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-gray-200 animate-pulse"></div>
+});
+
+// Interface for MapComponent props
+interface MapComponentProps {
+  center: [number, number];
+  zoom: number;
+}
+
+// Project data moved outside component
+const productData: ProductData[] = [
+  {
+    id: 1,
+    heading: '37 GRANDSTAND',
+    src: '/images/banner.png',
+    alt: '37 GRANDSTAND',
+    content: 'Premium 20-storey tower with 4 & 3 Bed Bespoke Residences. Featuring 72 exclusive units starting from 1350 Sqft. with world-class amenities and strategic location.',
+    buttonText: 'view-details',
+    link: 'https://37grandstand.com/',
+    location: [18.5679, 73.7772] as [number, number]
+  },
+  {
+    id: 2,
+    heading: 'Grazia',
+    src: '/images/banner2.png',
+    alt: 'Grazia',
+    content: 'Elegant 6-storey residential complex offering 3 & 2 Bed Residences. 18 exclusive units starting from 830 Sqft. with modern amenities and serene living environment.',
+    buttonText: 'view-details',
+    link: '/projects/grazia',
+    location: [18.4831, 73.8567] as [number, number]
+  },
+  {
+    id: 3,
+    heading: '64 Meridien - Phase-II',
+    src: '/images/banner1.png',
+    alt: '64 Meridien - Phase-II',
+    content: 'Mega township project with 5 towers of 13 storeys each. Offering 250 units of 2 & 3 Bed Residences starting from 682 Sqft. with comprehensive lifestyle amenities.',
+    buttonText: 'view-details',
+    link: '/projects/64-meridien',
+    location: [18.6293, 73.8567] as [number, number]
+  },
+  {
+    id: 4,
+    heading: 'Codename HotSpot',
+    src: '/images/codename.webp',
+    alt: 'Codename HotSpot',
+    content: 'Premium commercial office spaces in Baner, Pune. The Gateway to Pune Business with scalable office & retail spaces, metro connectivity and high ROI potential.',
+    buttonText: 'view-details',
+    link: 'https://codenamehotspot.com/',
+    location: [18.5204, 73.8567] as [number, number]
+  }
+];
 
 interface ProductData {
   id: number;
@@ -12,49 +70,26 @@ interface ProductData {
   content: string;
   buttonText: string;
   link: string;
+  location: [number, number];
 }
 
 const ProductStyle: React.FC = () => {
   const [activeId, setActiveId] = useState<number>(2);
+  const [isClient, setIsClient] = useState(false);
+  const [mapCenter, setMapCenter] = useState<[number, number]>([18.5204, 73.8567]);
+  const [mapZoom, setMapZoom] = useState<number>(13);
 
-  const productData: ProductData[] = [
-    {
-      id: 1,
-      heading: '37 GRANDSTAND',
-      src: '/images/banner.png',
-      alt: '37 GRANDSTAND',
-      content: 'Premium 20-storey tower with 4 & 3 Bed Bespoke Residences. Featuring 72 exclusive units starting from 1350 Sqft. with world-class amenities and strategic location.',
-      buttonText: 'view-details',
-      link: 'https://37grandstand.com/'
-    },
-    {
-      id: 2,
-      heading: 'Grazia',
-      src: '/images/banner2.png',
-      alt: 'Grazia',
-      content: 'Elegant 6-storey residential complex offering 3 & 2 Bed Residences. 18 exclusive units starting from 830 Sqft. with modern amenities and serene living environment.',
-      buttonText: 'view-details',
-      link: '/projects/grazia'
-    },
-    {
-      id: 3,
-      heading: '64 Meridien - Phase-II',
-      src: '/images/banner1.png',
-      alt: '64 Meridien - Phase-II',
-      content: 'Mega township project with 5 towers of 13 storeys each. Offering 250 units of 2 & 3 Bed Residences starting from 682 Sqft. with comprehensive lifestyle amenities.',
-      buttonText: 'view-details',
-      link: '/projects/64-meridien'
-    },
-    {
-      id: 4,
-      heading: 'Codename HotSpot',
-      src: '/images/codename.webp',
-      alt: 'Codename HotSpot',
-      content: 'Premium commercial office spaces in Baner, Pune. The Gateway to Pune Business with scalable office & retail spaces, metro connectivity and high ROI potential.',
-      buttonText: 'view-details',
-      link: 'https://codenamehotspot.com/'
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    const activeProduct = productData.find(product => product.id === activeId);
+    if (activeProduct) {
+      setMapCenter(activeProduct.location);
+      setMapZoom(16);
     }
-  ];
+  }, [activeId]);
 
   const productColors = [
     'bg-[#12394C]',
@@ -65,41 +100,39 @@ const ProductStyle: React.FC = () => {
   ];
 
   return (
-    <div className=' min-h-screen px-4'>
+    <div className='min-h-screen px-4 relative'>
       <div className="max-w-6xl mx-auto">
-      <motion.div 
-        className='flex flex-col max-w-6xl mx-auto md:justify-center md:items-center gap-4  p-4 md:p-8'
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+        <motion.div 
+          className='text-center mb-12'
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-4 md:mb-0"
+          transition={{ duration: 0.8 }}
         >
-        <h2 className="text-center text-2xl uppercase md:text-4xl lg:text-5xl font-bold text-[#12394C] leading-tight overflow-hidden">
-              
+          <motion.h2
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="text-2xl uppercase md:text-4xl lg:text-5xl font-bold text-[#12394C] leading-tight overflow-hidden mb-6"
+          >
             Our Ongoing Projects 
-          </h2>
-        </motion.div>
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <p className="text-center text-gray-600 leading-relaxed max-w-2xl text-sm md:text-base overflow-hidden ">
+          </motion.h2>
+          <motion.p
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+            className="text-gray-600 leading-relaxed max-w-2xl mx-auto text-sm md:text-base overflow-hidden"
+          >
             Explore our current developments featuring premium residential and commercial projects. 
             Each project showcases exceptional architecture, modern amenities, and strategic locations 
             for unparalleled living and working experiences.
-          </p>
+          </motion.p>
         </motion.div>
-      </motion.div>
-        <div className="flex gap-0 h-[500px] overflow-hidden">
+        
+        {/* Product Cards Section */}
+        <div className="flex gap-0 h-[500px] overflow-hidden relative z-30">
           {productData.map((product) => {
             const isActive = activeId === product.id;
             return (
@@ -175,7 +208,15 @@ const ProductStyle: React.FC = () => {
             );
           })}
         </div>
+        
+      
       </div>
+        {/* Map Background - Full width below cards */}
+       <div className="relative w-full h-62 z-0 -mt-[60px]">
+          {isClient && (
+            <MapComponent center={mapCenter} zoom={mapZoom} />
+          )}
+        </div>
     </div>
   );
 };

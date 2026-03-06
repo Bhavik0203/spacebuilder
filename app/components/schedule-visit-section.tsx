@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState } from 'react';
@@ -7,29 +8,51 @@ const ScheduleVisitSection = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <section className="bg-[#3A5D8F] py-16">
-            <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        <section 
+            className="relative py-16 px-6 md:px-12 lg:px-24 rounded-3xl mx-6 md:mx-12 lg:mx-24 my-12 overflow-hidden"
+            style={{
+                backgroundImage: 'url("/images/Frame 47.png")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundColor: '#E6F3FF'
+            }}
+        >
+            {/* Overlay for better text readability */}
+            {/* <div className="absolute inset-0 bg-gradient-to-r from-blue-50/90 to-blue-100/80"></div> */}
+            
+            <div className="relative z-10 container mx-auto">
+                <div className="flex flex-col items-center justify-center text-center space-y-6">
 
                     {/* Text Content */}
-                    <div className="space-y-4 max-w-2xl">
-                        <h2 className="text-3xl md:text-4xl font-serif text-white uppercase tracking-wide">
-                            Schedule A Visit
+                    <div className="space-y-4 max-w-3xl">
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
+                           Schedule A Visit
                         </h2>
-                        <p className="text-white/90 text-sm md:text-base leading-relaxed">
-                            Discover thoughtfully designed spaces built for modern living.
-                            <br className="hidden md:block" />
-                            Experience quality construction, smart layouts, and trusted craftsmanship.
+                        <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                           Discover thoughtfully designed spaces built for modern living.
+                          </p>
+                        <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                          Experience quality construction, smart layouts, and trusted craftsmanship.
                         </p>
                     </div>
 
                     {/* Button */}
-                    <div className="shrink-0">
+                    <div className="pt-4">
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="px-8 py-3 border cursor-pointer border-white text-white text-sm font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors duration-300"
+                            className="flex items-center cursor-pointer gap-3 px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
                         >
-                            Request a Viewing
+                            {/* House Icon */}
+                            <svg 
+                                className="w-6 h-6" 
+                                fill="currentColor" 
+                                viewBox="0 0 24 24" 
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                            </svg>
+                             Request A Viewing
                         </button>
                     </div>
 

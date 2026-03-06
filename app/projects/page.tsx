@@ -3,6 +3,7 @@
 import Image from "next/image";
 import OngoingProjects from "../components/ongoing-projects";
 import CompletedProjects from "../components/completed-projects";
+import HandoverSection from "../components/handover-section";
 
 export default function Projects() {
     return (
@@ -47,6 +48,7 @@ export default function Projects() {
 
            
             <CompletedProjects />
+            <HandoverSection />
         </main>
 
 

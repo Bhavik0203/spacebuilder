@@ -64,21 +64,9 @@ const BuildFamilySection = () => {
                             {/* Content */}
                             <div className="relative z-10 space-y-4">
                                 <h3 className="text-xl font-bold tracking-wide">{cat.title}</h3>
-                                <p className={`text-xs leading-relaxed ${hoveredIndex === index ? 'text-white/80' : 'text-gray-500'}`}>
+                                <p className={`text-base leading-relaxed ${hoveredIndex === index ? 'text-white/80' : 'text-gray-500'}`}>
                                     {cat.description}
                                 </p>
-                            </div>
-
-                            {/* Button */}
-                            <div className="relative z-10 flex items-center gap-3 mt-4">
-                                <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-colors ${hoveredIndex === index ? 'border-white text-white' : 'border-[#3A5D8F] text-[#3A5D8F]'
-                                    }`}>
-                                    <ArrowUpRight className="w-5 h-5" />
-                                </div>
-                                <span className={`text-xs font-bold uppercase tracking-widest ${hoveredIndex === index ? 'text-white' : 'text-[#3A5D8F]'
-                                    }`}>
-                                    View More
-                                </span>
                             </div>
 
                             {/* Background Icon Decoration */}

@@ -132,7 +132,7 @@ export default function ScheduleVisitModal({ isOpen, onClose }: ScheduleVisitMod
                         </div>
 
                         <textarea
-                            rows={3}
+                            rows={2}
                             placeholder="Any specific requirements or questions?"
                             value={formData.message}
                             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -141,7 +141,7 @@ export default function ScheduleVisitModal({ isOpen, onClose }: ScheduleVisitMod
 
                         <button
                             type="submit"
-                            className="bg-[#4A77B5] cursor-pointer text-white w-full py-3 font-bold uppercase tracking-widest hover:bg-[#3a6299] transition-colors rounded shadow-sm mt-4"
+                            className="bg-[#4A77B5] cursor-pointer text-white w-full py-2 font-bold uppercase tracking-widest hover:bg-[#3a6299] transition-colors rounded shadow-sm "
                         >
                             Confirm Visit Request
                         </button>

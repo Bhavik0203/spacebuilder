@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Download, Home, MapPin, Clock, ChevronLeft, ChevronRight, IndianRupee } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const SLIDES = [
     {
@@ -39,6 +40,11 @@ const SLIDES = [
 
 const Banner = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const { scrollY } = useScroll();
+    
+    // Banner stays fixed until curtains mostly disappear (0-150px scroll), then scrolls normally
+    const bannerY = useTransform(scrollY, [0, 150], [0, 0]);
+    const bannerPosition = useTransform(scrollY, [0, 150], ['fixed', 'relative']);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -59,7 +65,14 @@ const Banner = () => {
     const slide = SLIDES[currentSlide];
 
     return (
-        <div className="relative w-full h-[100vh] overflow-hidden bg-black z-0">
+        <motion.div 
+            className="w-full h-[100vh] overflow-hidden bg-black z-0"
+            style={{
+                position: bannerPosition,
+                y: bannerY,
+                top: bannerPosition.get() === 'fixed' ? 0 : 'auto'
+            }}
+        >
             {/* Background Images with Fade Transition */}
             {SLIDES.map((s, index) => (
                 <div
@@ -180,7 +193,7 @@ const Banner = () => {
             >
                 <ChevronRight className="w-8 h-8" />
             </button>
-        </div>
+        </motion.div>
     );
 };
 
