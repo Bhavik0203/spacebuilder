@@ -18,11 +18,12 @@ export default function Home() {
       <CurtainOverlay />
       <Banner />
       <CorporateOverview />
+       <StatsSection />
       
       <ProductStyle/>
       <PFactorSection/>
       <ProjectsSection />
-      <StatsSection />
+     
       <ByLocationSection />
       <GallerySection />
       <BuildFamilySection />
