@@ -96,14 +96,13 @@ const ProductStyle: React.FC = () => {
     'bg-[#12394C]/90',
     'bg-[#12394C]/80',
     'bg-[#12394C]/70',
-    'bg-[#12394C]/60',
   ];
 
   return (
-    <div className='min-h-screen px-4 relative hidden md:block'>
-      <div className="max-w-6xl mx-auto">
+    <div className='min-h-screen px-4 py-8 relative md:hidden'>
+      <div className="max-w-lg mx-auto">
         <motion.div 
-          className='text-center mb-12 overflow-hidden'
+          className='text-center mb-8'
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -114,8 +113,7 @@ const ProductStyle: React.FC = () => {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-           className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C] overflow-hidden">
-               
+           className="text-3xl uppercase font-bold leading-tight text-[#12394C] mb-4">
             Our Ongoing Projects 
           </motion.h2>
           <motion.p
@@ -123,100 +121,94 @@ const ProductStyle: React.FC = () => {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-            className="text-[#12394C] leading-relaxed max-w-2xl mx-auto text-sm md:text-base overflow-hidden"
+            className="text-[#12394C] leading-relaxed max-w-md mx-auto text-sm"
           >
-            Explore our current developments featuring premium residential and commercial projects. 
-            Each project showcases exceptional architecture, modern amenities, and strategic locations 
-            for unparalleled living and working experiences.
+            Explore our current developments featuring premium residential and commercial projects with exceptional architecture and strategic locations.
           </motion.p>
         </motion.div>
         
-        {/* Product Cards Section */}
-        <div className="flex gap-0 h-[500px] overflow-hidden relative z-30">
-          {productData.map((product) => {
+        {/* Mobile Project Cards - Vertical Stack */}
+        <div className="space-y-4 mb-8">
+          {productData.map((product, index) => {
             const isActive = activeId === product.id;
             return (
-              <div
+              <motion.div
                 key={product.id}
-                onMouseEnter={() => setActiveId(product.id)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                onClick={() => setActiveId(product.id)}
                 className={`
-                  relative flex-shrink-0 transition-all duration-700 ease-in-out cursor-pointer
-                  ${isActive ? 'flex-[3]' : 'w-60'}
+                  relative rounded-lg overflow-hidden cursor-pointer transition-all duration-300
+                  ${isActive ? 'ring-2 ring-[#12394C] shadow-lg' : 'shadow-md'}
                 `}
               >
-                {/* Background Image - Only show on hover/active */}
-                {isActive && (
-                  <div className="absolute inset-0 z-0">
-                    <Image
-                      src={product.src}
-                      alt={product.alt}
-                      fill
-                      className="object-cover"
-                      priority={true}
-                    />
-                    {/* Black Overlay with 50% opacity */}
-                    <div className="absolute inset-0 bg-black opacity-60"></div>
+                {/* Background Image */}
+                <div className="relative h-48">
+                  <Image
+                    src={product.src}
+                    alt={product.alt}
+                    fill
+                    className="object-cover"
+                    priority={index === 0}
+                  />
+                  {/* Overlay */}
+                  <div className={`absolute inset-0 ${isActive ? 'bg-black/70' : 'bg-black/50'} transition-opacity duration-300`}></div>
+                  
+                  {/* Project Number */}
+                  <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center">
+                    <span className="text-sm font-bold text-[#12394C]">{String(product.id).padStart(2, '0')}</span>
                   </div>
-                )}
-                
-                {/* Background for collapsed state */}
-                {!isActive && (
-                  <div className={`absolute inset-0 z-0 gap-2 border-4 border-white ${productColors[product.id - 1]}`}></div>
-                )}
+                </div>
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col h-full p-6 text-white">
-                  {/* Number */}
-                  <div className="text-2xl font-bold mb-4">{String(product.id).padStart(2, '0')}</div>
-
-                  {/* Collapsed State */}
-                  {!isActive && (
-                    <div className="flex-1 flex flex-col items-center justify-between pb-4 pt-8">
-                      <div className="flex-1 flex items-center justify-center">
-                        <div className="text-lg font-medium uppercase tracking-wider whitespace-nowrap -rotate-90 origin-center text-center">
-                          {product.heading}
-                        </div>
-                      </div>
-                      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0">
-                        <span className="text-xl font-bold text-gray-800">+</span>
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Expanded State */}
+                <div className="bg-white p-4">
+                  <h3 className="text-lg font-bold text-[#12394C] mb-2">{product.heading}</h3>
+                  
+                  {/* Expanded Content */}
                   {isActive && (
-                    <div className="flex-1 flex flex-col justify-center space-y-6">
-                      <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-white">
-                {product.heading}
-                      </h2>
-                      <p className=" pb-4 text-white leading-relaxed text-justify">
-                           {product.content}
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                        {product.content}
                       </p>
                       <a 
                         href={product.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-lg font-medium hover:gap-4 transition-all duration-300 group"
+                        className="inline-flex items-center gap-2 text-sm font-medium text-[#12394C] hover:gap-3 transition-all duration-300 group"
                       >
                         VIEW MORE
-                        <span className="group-hover:translate-x-2 transition-transform">→</span>
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
                       </a>
-                    </div>
+                    </motion.div>
                   )}
+                  
+                  {/* Expand/Collapse Indicator */}
+                  <div className="flex items-center justify-center mt-2">
+                    <div className={`w-6 h-6 rounded-full border-2 border-[#12394C] flex items-center justify-center transition-transform duration-300 ${isActive ? 'rotate-45' : ''}`}>
+                      <span className="text-[#12394C] text-lg leading-none">+</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
         
-      
-      </div>
-        {/* Map Background - Full width below cards */}
-       <div className="relative w-full h-62 z-0 -mt-[60px]">
+        {/* Mobile Map */}
+        <div className="relative w-full h-64 rounded-lg overflow-hidden shadow-lg">
           {isClient && (
             <MapComponent center={mapCenter} zoom={mapZoom} />
           )}
         </div>
+      </div>
     </div>
   );
 };

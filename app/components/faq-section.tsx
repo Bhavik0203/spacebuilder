@@ -38,7 +38,8 @@ export default function FAQSection() {
                         <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-xs">FAQ</span>
                         <div className="h-[2px] w-12 bg-[#3A5D8F]"></div>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-serif text-[#1B2B41] font-bold">General Enquiries</h2>
+                       <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+                General Enquiries</h2>
                 </div>
 
                 <div className="flex flex-col space-y-4">

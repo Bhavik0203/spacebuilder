@@ -69,7 +69,9 @@ export default function LocationSection() {
 
                 {/* List - Right Half */}
                 <div className="w-full lg:w-1/2 bg-[#EFF4FA] p-10 lg:p-20 flex flex-col justify-center">
-                    <h2 className="text-4xl font-serif font-bold text-[#1B2B41] mb-10">Our Location</h2>
+                       <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+              
+                        Our Location</h2>
 
                     <div className="space-y-4">
                         {LOCATIONS.map((item, index) => (

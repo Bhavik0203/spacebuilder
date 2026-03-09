@@ -17,7 +17,7 @@ export default function ContactForm() {
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B2B41] mb-12">
+                   <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
                     Available To Assist You 24/7
                 </h2>
 

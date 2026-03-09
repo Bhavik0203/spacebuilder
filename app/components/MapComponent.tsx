@@ -28,48 +28,30 @@ const MapController: React.FC<{ center: [number, number]; zoom: number }> = ({ c
   const [map, setMap] = useState<any>(null);
   
   useEffect(() => {
-    // Import useMap dynamically only when component mounts
-    import('react-leaflet').then((mod) => {
-      const useMapHook = mod.useMap;
-      const mapInstance = useMapHook();
-      setMap(mapInstance);
-    });
-  }, []);
-  
-  useEffect(() => {
-    if (map && map.setView) {
-      const timer = setTimeout(() => {
-        if (map.setView) {
-          map.setView(center, zoom);
-        }
-      }, 100);
-      return () => clearTimeout(timer);
+    if (map) {
+      map.setView(center, zoom);
     }
   }, [center, zoom, map]);
-  
+
   return null;
 };
 
-interface MapComponentProps {
-  center: [number, number];
-  zoom: number;
-}
-
-const MapComponent: React.FC<MapComponentProps> = ({ center, zoom }) => {
+// Main Map Component
+const MapComponent: React.FC<{ center: [number, number]; zoom: number }> = ({ center, zoom }) => {
   const [isClient, setIsClient] = useState(false);
-  
+
   useEffect(() => {
     setIsClient(true);
   }, []);
 
   if (!isClient) {
     return (
-      <div className="flex items-center justify-center h-full w-full bg-gray-100">
+      <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
         <div className="text-gray-500">Loading map...</div>
       </div>
     );
   }
-
+  
   return (
     <MapContainer 
       center={center} 

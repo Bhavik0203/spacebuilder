@@ -225,40 +225,40 @@ const ProjectsSection = () => {
     };
 
     return (
-        <section className="py-10 bg-white overflow-hidden">
-            <div className="container mx-auto px-6 md:px-12 lg:px-24">
+        <section className="py-8 md:py-10 bg-white overflow-hidden">
+            <div className="container mx-auto px-4 md:px-6 lg:px-24">
 
                 {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12 pr-6 md:pr-12 lg:pr-24">
+                <div className="flex flex-col justify-between items-start mb-8 md:mb-12">
                     <div className="space-y-4">
                         <div className="flex items-center gap-4">
-                            <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-sm">Our Projects</span>
+                            <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-xs md:text-sm">Our Projects</span>
                             <div className="h-[2px] w-12 bg-[#3A5D8F]" />
                         </div>
-                     <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+                     <h2 className="text-3xl md:text-4xl lg:text-5xl uppercase font-bold leading-tight text-[#12394C]">
                      All Projects
                         </h2>
                     </div>
 
-                    <div className="flex gap-8 mt-6 md:mt-0 text-lg ">
+                    <div className="flex gap-6 md:gap-8 mt-6 text-base md:text-lg w-full md:w-auto">
                         <button
                             onClick={() => setActiveTab('Ongoing')}
-                            className={`pb-2 transition-colors ${activeTab === 'Ongoing' ? 'text-[#1B2B41] cursor-pointer font-bold border-b-2 border-[#1B2B41]' : 'text-gray-400'}`}
+                            className={`pb-2 transition-colors flex-1 md:flex-none text-center ${activeTab === 'Ongoing' ? 'text-[#1B2B41] font-bold border-b-2 border-[#1B2B41]' : 'text-gray-400'}`}
                         >
                             Ongoing
                         </button>
                         <button
                             onClick={() => setActiveTab('Completed')}
-                            className={`pb-2 transition-colors ${activeTab === 'Completed' ? 'text-[#1B2B41] cursor-pointer font-bold border-b-2 border-[#1B2B41]' : 'text-gray-400'}`}
+                            className={`pb-2 transition-colors flex-1 md:flex-none text-center ${activeTab === 'Completed' ? 'text-[#1B2B41] font-bold border-b-2 border-[#1B2B41]' : 'text-gray-400'}`}
                         >
                             Completed
                         </button>
                     </div>
                 </div>
 
-                {/* Carousel Content */}
+                {/* Mobile: Vertical Stack | Desktop: Carousel */}
                 <div className="relative">
-                    {/* Navigation Buttons */}
+                    {/* Navigation Buttons - Desktop Only */}
                     <button
                         onClick={scrollLeft}
                         className="absolute left-4 top-1/2 -translate-y-1/2  z-20 p-3 bg-white/20 cursor-pointer backdrop-blur-sm rounded-full text-white hover:bg-white/40 transition-all hidden md:block"
@@ -272,9 +272,99 @@ const ProjectsSection = () => {
                         <ChevronRight className="w-8 h-8 stroke-[1.5]" />
                     </button>
 
+                    {/* Mobile: Vertical Stack */}
+                    <div className="md:hidden space-y-4">
+                        {filteredProjects.map((project, index) => (
+                            <div
+                                key={`${project.id}-${index}`}
+                                className="relative w-full h-[400px] group transition-all duration-500 ease-in-out cursor-pointer"
+                                onClick={() => setHoveredIndex(hoveredIndex === index ? null : index)}
+                            >
+                                {/* Background Image */}
+                                <div className="absolute inset-0 w-full h-full">
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover"
+                                        priority={index === 0}
+                                    />
+                                    {/* Dark Overlay */}
+                                    <div className={`absolute inset-0 bg-black transition-opacity duration-500 ${hoveredIndex === index ? 'opacity-60' : 'opacity-40'}`} />
+                                </div>
+
+                                {/* Content */}
+                                <div className="relative z-10 h-full flex flex-col justify-between p-6 text-white">
+                                    {/* Top Section */}
+                                    <div>
+                                        <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                                        <p className="text-sm text-white/80">{project.location}</p>
+                                    </div>
+
+                                    {/* Bottom Section - Expandable */}
+                                    <div className={`transition-all duration-500 overflow-hidden ${hoveredIndex === index ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                        <div className="space-y-3">
+                                            <div className="flex justify-between w-full border-b border-white/20 pb-1">
+                                                <span>Towers :</span>
+                                                <span>{project.towers}</span>
+                                            </div>
+                                            <div className="flex justify-between w-full border-b border-white/20 pb-1">
+                                                <span>Storey :</span>
+                                                <span>{project.storey}</span>
+                                            </div>
+                                            <div className="flex justify-between w-full border-b border-white/20 pb-1">
+                                                <span>Apartment :</span>
+                                                <span>{project.apartment}</span>
+                                            </div>
+                                            <div className="flex justify-between w-full border-b border-white/20 pb-1">
+                                                <span>Area :</span>
+                                                <span>{project.area}</span>
+                                            </div>
+                                            <div className="flex justify-between w-full border-b border-white/20 pb-1">
+                                                <span>Size :</span>
+                                                <span>{project.size}</span>
+                                            </div>
+                                            <div className="flex justify-between w-full border-b border-white/20 pb-1">
+                                                <span>Status :</span>
+                                                <span>{project.status}</span>
+                                            </div>
+                                        </div>
+
+                                        {project.link ? (
+                                            <a
+                                                href={project.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                onClick={(e) => e.stopPropagation()}
+                                                className="border border-white px-6 py-2 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors inline-block mt-4"
+                                            >
+                                                Discover More
+                                            </a>
+                                        ) : (
+                                            <button 
+                                                onClick={(e) => e.stopPropagation()}
+                                                className="border cursor-pointer border-white px-6 py-2 text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-[#3A5D8F] transition-colors mt-4"
+                                            >
+                                                Discover More
+                                            </button>
+                                        )}
+                                    </div>
+
+                                    {/* Tap to expand indicator */}
+                                    {hoveredIndex !== index && (
+                                        <div className="text-center text-sm text-white/60">
+                                            Tap to explore →
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Desktop: Horizontal Carousel */}
                     <div
                         ref={scrollContainerRef}
-                        className="flex gap-4 overflow-x-auto pb-4 pr-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                        className="hidden md:flex gap-4 overflow-x-auto pb-4 pr-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                     >
                         {filteredProjects.map((project, index) => (
                             <div

@@ -131,6 +131,11 @@ const PROJECTS = [
 
 export default function CompletedProjects() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [showAll, setShowAll] = useState(false);
+
+    // Determine how many projects to show
+    const projectsToShow = showAll ? PROJECTS : PROJECTS.slice(0, 4);
+    const hasMoreProjects = PROJECTS.length > 4;
 
     return (
         <section className="py-20 bg-white">
@@ -147,7 +152,7 @@ export default function CompletedProjects() {
 
                 {/* Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {PROJECTS.map((project, index) => (
+                    {projectsToShow.map((project, index) => (
                         <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-row hover:shadow-xl transition-shadow duration-300 border border-gray-100 h-full">
                             {/* Image Section */}
                             <div className="relative w-2/5 min-h-full">
@@ -184,6 +189,18 @@ export default function CompletedProjects() {
                         </div>
                     ))}
                 </div>
+
+                {/* Show More Button - Mobile Only */}
+                {hasMoreProjects && (
+                    <div className="md:hidden mt-8 text-center">
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="px-8 py-3 bg-[#3A5D8F] text-white font-bold uppercase tracking-widest text-sm hover:bg-[#2A4D7F] transition-colors duration-300"
+                        >
+                            {showAll ? 'Show Less' : 'Show More'}
+                        </button>
+                    </div>
+                )}
 
                 <EnquireModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
             </div>

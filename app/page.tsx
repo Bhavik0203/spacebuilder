@@ -11,16 +11,18 @@ import BuildFamilySection from "./components/build-family-section";
 import ScheduleVisitSection from "./components/schedule-visit-section";
 import ProductStyle from "./components/product-style";
 import PFactorSection from "./components/p-factor-section";
+import ProductStyleMobile from "./components/product-style-mobile";
 
 export default function Home() {
   return (
     <div>
-      <CurtainOverlay />
+      {/* <CurtainOverlay /> */}
       <Banner />
       <CorporateOverview />
        <StatsSection />
       
       <ProductStyle/>
+      <ProductStyleMobile/>
       <PFactorSection/>
       <ProjectsSection />
      

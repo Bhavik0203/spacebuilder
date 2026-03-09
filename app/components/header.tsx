@@ -10,6 +10,7 @@ import ProjectsDropdown from './projects-dropdown';
 const Header = () => {
     const [showSecondHeader, setShowSecondHeader] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -99,7 +100,10 @@ const Header = () => {
                     <div className="flex items-center gap-6">
                       
 
-                        <button className="cursor-pointer md:hidden text-white hover:text-yellow-400 transition-colors">
+                        <button 
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className="cursor-pointer md:hidden text-white hover:text-yellow-400 transition-colors"
+                        >
                             <Menu className="w-8 h-8" />
                         </button>
 
@@ -112,6 +116,32 @@ const Header = () => {
                     </div>
                 </div>
 
+                {/* Mobile Menu */}
+                {isMobileMenuOpen && (
+                    <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm">
+                        <nav className="container mx-auto px-6 py-4">
+                            {navItems.map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="block py-3 text-white/90 hover:text-yellow-400 text-sm uppercase tracking-widest transition-colors font-medium border-b border-white/10"
+                                >
+                                    {item.name}
+                                </Link>
+                            ))}
+                            <button
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setIsMobileMenuOpen(false);
+                                }}
+                                className="w-full mt-4 cursor-pointer bg-white text-black px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-yellow-400 hover:text-black transition-all duration-300"
+                            >
+                                Enquire Now
+                            </button>
+                        </nav>
+                    </div>
+                )}
 
                 <EnquireModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
             </header >
@@ -165,7 +195,10 @@ const Header = () => {
                     {/* WhatsApp Icon */}
                  
 
-                    <button className="md:hidden cursor-pointer text-black transition-colors">
+                    <button 
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        className="md:hidden cursor-pointer text-black transition-colors"
+                    >
                         <Menu className="w-8 h-8" />
                     </button>
 
@@ -179,6 +212,32 @@ const Header = () => {
                 </div>
             </div>
 
+            {/* Mobile Menu */}
+            {isMobileMenuOpen && (
+                <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg">
+                    <nav className="container mx-auto px-6 py-4">
+                        {navItems.map((item) => (
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block py-3 text-black hover:text-[#4a77b5] text-sm uppercase tracking-widest transition-colors font-medium border-b border-gray-200"
+                            >
+                                {item.name}
+                            </Link>
+                        ))}
+                        <button
+                            onClick={() => {
+                                setIsModalOpen(true);
+                                setIsMobileMenuOpen(false);
+                            }}
+                            className="w-full mt-4 cursor-pointer bg-[#4a77b5] text-white px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#3a6299] transition-all duration-300"
+                        >
+                            ENQUIRE NOW
+                        </button>
+                    </nav>
+                </div>
+            )}
 
             <EnquireModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </header >
