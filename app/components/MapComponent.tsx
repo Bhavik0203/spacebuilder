@@ -1,7 +1,13 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const MapContainer = dynamic(() => import('react-leaflet').then((mod) => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import('react-leaflet').then((mod) => mod.TileLayer), { ssr: false });
+const Marker = dynamic(() => import('react-leaflet').then((mod) => mod.Marker), { ssr: false });
+const Popup = dynamic(() => import('react-leaflet').then((mod) => mod.Popup), { ssr: false });
+
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
@@ -19,10 +25,26 @@ const createRedIcon = () => {
 
 // Map controller component
 const MapController: React.FC<{ center: [number, number]; zoom: number }> = ({ center, zoom }) => {
-  const map = useMap();
+  const [map, setMap] = useState<any>(null);
   
   useEffect(() => {
-    map.setView(center, zoom);
+    // Import useMap dynamically only when component mounts
+    import('react-leaflet').then((mod) => {
+      const useMapHook = mod.useMap;
+      const mapInstance = useMapHook();
+      setMap(mapInstance);
+    });
+  }, []);
+  
+  useEffect(() => {
+    if (map && map.setView) {
+      const timer = setTimeout(() => {
+        if (map.setView) {
+          map.setView(center, zoom);
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
   }, [center, zoom, map]);
   
   return null;
@@ -34,6 +56,20 @@ interface MapComponentProps {
 }
 
 const MapComponent: React.FC<MapComponentProps> = ({ center, zoom }) => {
+  const [isClient, setIsClient] = useState(false);
+  
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return (
+      <div className="flex items-center justify-center h-full w-full bg-gray-100">
+        <div className="text-gray-500">Loading map...</div>
+      </div>
+    );
+  }
+
   return (
     <MapContainer 
       center={center} 

@@ -57,8 +57,8 @@ const PartnersSection = () => {
                         <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-sm">Our Partners</span>
                         <div className="h-[2px] w-20 bg-[#3A5D8F]" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-serif text-[#1B2B41] font-bold">
-                        Trusted by the world's best
+                   <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+                   Trusted by the world's best
                     </h2>
                 </div>
 

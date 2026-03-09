@@ -96,7 +96,7 @@ const StatsSection = () => {
                         {STATS.map((stat) => (
                             <div key={stat.id} className="relative flex items-center justify-center h-32 md:h-40">
                                 {/* Background Large Text */}
-                                <span className="absolute text-7xl md:text-8xl font-bold text-[#E6EBF5] font-sans tracking-tight z-0 select-none">
+                                <span className="absolute text-7xl md:text-8xl font-bold text-[#d0dcf2] font-sans tracking-tight z-0 select-none">
                                     {isVisible ? counters[stat.id] || 0 : 0}{stat.displayValue.includes('+') ? '+' : stat.displayValue.includes('L') ? ' L' : ''}
                                 </span>
 

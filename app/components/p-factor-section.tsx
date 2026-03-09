@@ -38,10 +38,17 @@ const PFactorSection = () => {
           {/* Left Column - Text Content */}
           <div className="md:w-1/2 flex flex-col justify-center space-y-6">
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-                Going beyond spaces to integrate 
-              </h2>
-              <p className="text-gray-600 text-lg">
+             
+                 <div className="space-y-4">
+                            <div className="flex items-center gap-4">
+                                <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-sm">The P-Factor</span>
+                                <div className="h-[2px] w-12 bg-[#3A5D8F]" />
+                            </div>
+                            <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+                 Going beyond spaces to integrate 
+                            </h2>
+                        </div>
+              <p className="text-gray-600 font-bold text-lg">
                 The Space Builder Promise
               </p>
             </div>
@@ -68,7 +75,7 @@ const PFactorSection = () => {
                   </button>
                   
                   <div className={`transition-all duration-300 ${activeIndex === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
-                    <p className="px-6 pb-4 text-gray-700 leading-relaxed">
+                    <p className="px-6 pb-4 text-gray-700 leading-relaxed text-justify">
                       {factor.description}
                     </p>
                   </div>

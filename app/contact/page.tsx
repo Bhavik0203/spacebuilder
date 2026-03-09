@@ -13,7 +13,7 @@ export default function ContactPage() {
                 {/* Background Image */}
                 <div className="absolute inset-0">
                     <Image
-                        src="/images/banner2.png" // Using a banner image as placeholder
+                        src="/images/contactbg.png" // Using a banner image as placeholder
                         alt="Contact Banner"
                         fill
                         className="object-cover"

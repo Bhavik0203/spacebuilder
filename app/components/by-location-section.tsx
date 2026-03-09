@@ -82,8 +82,8 @@ const ByLocationSection = () => {
                         <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-sm">Find Your Paradise</span>
                         <div className="h-[2px] w-12 bg-[#3A5D8F]" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-serif text-[#1B2B41] font-bold">
-                        By Location
+                       <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+                  By Location
                     </h2>
                 </div>
 
@@ -136,7 +136,7 @@ const ByLocationSection = () => {
                         {/* Pill Shape Overlay */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[450px] bg-[#3A5D8F]/95 rounded-[160px] flex flex-col items-center justify-center text-center p-8 text-white transition-all duration-500 ease-out">
                             <div className="mb-8">
-                                <h3 className="text-3xl font-serif uppercase tracking-widest mb-1 transition-all duration-300">
+                                <h3 className="text-3xl  uppercase tracking-widest mb-1 transition-all duration-300">
                                     {hoveredLocation ? hoveredLocation.details.title : activeLocation.details.title}
                                 </h3>
                                 <p className="text-[10px] uppercase tracking-[0.2em] opacity-80 transition-all duration-300">
@@ -144,7 +144,7 @@ const ByLocationSection = () => {
                                 </p>
                             </div>
 
-                            <p className="text-sm font-light leading-relaxed max-w-[200px] transition-all duration-300">
+                            <p className="text-sm  leading-relaxed max-w-[200px] transition-all duration-300">
                                 {hoveredLocation ? hoveredLocation.details.address : activeLocation.details.address}
                             </p>
                             

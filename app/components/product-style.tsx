@@ -114,8 +114,8 @@ const ProductStyle: React.FC = () => {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="text-2xl uppercase md:text-4xl lg:text-5xl font-bold text-[#12394C] leading-tight overflow-hidden mb-6"
-          >
+           className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+               
             Our Ongoing Projects 
           </motion.h2>
           <motion.p
@@ -123,7 +123,7 @@ const ProductStyle: React.FC = () => {
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
-            className="text-gray-600 leading-relaxed max-w-2xl mx-auto text-sm md:text-base overflow-hidden"
+            className="text-[#12394C] leading-relaxed max-w-2xl mx-auto text-sm md:text-base overflow-hidden"
           >
             Explore our current developments featuring premium residential and commercial projects. 
             Each project showcases exceptional architecture, modern amenities, and strategic locations 
@@ -186,11 +186,11 @@ const ProductStyle: React.FC = () => {
                   {/* Expanded State */}
                   {isActive && (
                     <div className="flex-1 flex flex-col justify-center space-y-6">
-                      <h2 className="text-5xl font-bold uppercase tracking-wide">
-                        {product.heading}
+                      <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-white">
+                {product.heading}
                       </h2>
-                      <p className="text-sm leading-relaxed max-w-2xl opacity-90 text-justify">
-                        {product.content}
+                      <p className=" pb-4 text-white leading-relaxed text-justify">
+                           {product.content}
                       </p>
                       <a 
                         href={product.link}

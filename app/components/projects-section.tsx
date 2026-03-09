@@ -235,12 +235,12 @@ const ProjectsSection = () => {
                             <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-sm">Our Projects</span>
                             <div className="h-[2px] w-12 bg-[#3A5D8F]" />
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-serif text-[#1B2B41] font-bold">
-                            All Projects
+                     <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+                     All Projects
                         </h2>
                     </div>
 
-                    <div className="flex gap-8 mt-6 md:mt-0 text-lg font-serif">
+                    <div className="flex gap-8 mt-6 md:mt-0 text-lg ">
                         <button
                             onClick={() => setActiveTab('Ongoing')}
                             className={`pb-2 transition-colors ${activeTab === 'Ongoing' ? 'text-[#1B2B41] cursor-pointer font-bold border-b-2 border-[#1B2B41]' : 'text-gray-400'}`}
@@ -296,7 +296,7 @@ const ProjectsSection = () => {
 
                                 {/* Default Title (Visible when NOT hovered/active) */}
                                 <div className={`absolute bottom-8 left-0 right-0 text-center transition-opacity duration-300 ${hoveredIndex === index ? 'opacity-0' : 'opacity-100'}`}>
-                                    <h3 className="text-white font-serif text-2xl uppercase tracking-widest">{project.logo}</h3>
+                                    <h3 className="text-white  text-2xl uppercase tracking-widest">{project.logo}</h3>
                                     <p className="text-white/60 text-xs uppercase tracking-widest mt-2">{project.location}</p>
                                 </div>
 
@@ -304,11 +304,11 @@ const ProjectsSection = () => {
                                 <div className={`absolute inset-0 bg-[#3A5D8F] p-8 flex flex-col justify-center items-center text-center text-white transition-all duration-500 ${hoveredIndex === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
 
                                     <div className="mb-8">
-                                        <h3 className="text-3xl font-serif uppercase tracking-widest">{project.logo}</h3>
+                                        <h3 className="text-3xl  uppercase tracking-widest">{project.logo}</h3>
                                         <p className="text-[10px] uppercase tracking-[0.2em] mt-1">Patterned to Perfection</p>
                                     </div>
 
-                                    <h4 className="text-2xl font-serif font-bold mb-6">{project.title}</h4>
+                                    <h4 className="text-2xl  font-bold mb-6">{project.title}</h4>
 
                                     <div className="space-y-3 text-sm font-light opacity-90 mb-8">
                                         <div className="flex justify-between w-64 border-b border-white/20 pb-1">

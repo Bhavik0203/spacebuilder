@@ -10,16 +10,16 @@ const HandoverSection = () => {
                     
                     {/* Text Content */}
                     <div className="space-y-6">
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-                            Home Handover, <br />
+                           <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+                  Home Handover, <br />
                             <span className="text-blue-600">Done with Heart</span>
                         </h2>
                         
-                        <p className="text-lg text-gray-600 leading-relaxed">
+                        <p className="text-lg text-gray-600 leading-relaxed text-[#12394C] text-justify">
                             We believe the home handover process should be as warm and personal as the home itself. Our team takes a caring, empathetic approach to guide you through every step, ensuring you feel comfortable, informed, and confident as you receive the keys to your new home.
                         </p>
                         
-                        <p className="text-lg text-gray-600 leading-relaxed">
+                        <p className="text-lg text-gray-600 leading-relaxed text-[#12394C] text-justify">
                             From explaining every feature to addressing your questions, we're here to make your transition smooth and memorable. Your peace of mind is our priority, and we take pride in delivering not just homes, but happiness.
                         </p>
                     </div>

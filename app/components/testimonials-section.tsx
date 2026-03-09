@@ -64,8 +64,8 @@ const TestimonialsSection = () => {
                         <span className="text-white font-bold uppercase tracking-widest text-sm">Our Clients</span>
                         <div className="h-[2px] w-20 bg-white" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-serif text-white font-bold">
-                        Testimonials
+                    <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-white">
+                  Testimonials
                     </h2>
                 </div>
 

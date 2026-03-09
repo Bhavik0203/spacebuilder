@@ -26,33 +26,26 @@ const ScheduleVisitSection = () => {
 
                     {/* Text Content */}
                     <div className="space-y-4 max-w-3xl">
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
-                           Schedule A Visit
+                         <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+                  Schedule A Visit
                         </h2>
-                        <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                       <p className="  text-gray-700 leading-relaxed text-center">
                            Discover thoughtfully designed spaces built for modern living.
+                             Experience quality construction, smart layouts, and trusted craftsmanship.
                           </p>
-                        <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                          Experience quality construction, smart layouts, and trusted craftsmanship.
-                        </p>
+                      
                     </div>
 
                     {/* Button */}
                     <div className="pt-4">
                         <button
                             onClick={() => setIsModalOpen(true)}
-                            className="flex items-center cursor-pointer gap-3 px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                            className="flex items-center cursor-pointer gap-3 px-6 py-2 bg-blue-600 text-white text-lg font-semibold rounded-full hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
                         >
                             {/* House Icon */}
-                            <svg 
-                                className="w-6 h-6" 
-                                fill="currentColor" 
-                                viewBox="0 0 24 24" 
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                            </svg>
-                             Request A Viewing
+                         
+                            <span>Schedule A Visit</span>
+                        
                         </button>
                     </div>
 

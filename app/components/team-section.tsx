@@ -35,7 +35,8 @@ export default function TeamSection() {
                         <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-xs">TEAM MEMBERS</span>
                         <div className="h-[2px] w-12 bg-[#3A5D8F]"></div>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-serif text-[#1B2B41] font-bold">Our Team</h2>
+                    <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+               Our Team</h2>
                 </div>
 
                 {/* Grid */}

@@ -44,8 +44,8 @@ const GallerySection = () => {
                         <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-sm">Our Gallery</span>
                         <div className="h-[2px] w-12 bg-[#3A5D8F]" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-serif text-[#1B2B41] font-bold">
-                        Gallery
+                      <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+                   Gallery
                     </h2>
                 </div>
 

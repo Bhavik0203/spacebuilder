@@ -97,12 +97,7 @@ const Header = () => {
 
                     {/* Actions */}
                     <div className="flex items-center gap-6">
-                        <button className="hidden cursor-pointer md:flex items-center gap-2 text-white hover:text-yellow-400 transition-colors group">
-                            <div className="p-2 border border-white/30 rounded-full group-hover:border-yellow-400 transition-colors">
-                                <Phone className="w-4 h-4" />
-                            </div>
-                            <span className="text-sm tracking-wide font-medium">+91 98765 43210</span>
-                        </button>
+                      
 
                         <button className="cursor-pointer md:hidden text-white hover:text-yellow-400 transition-colors">
                             <Menu className="w-8 h-8" />
@@ -168,9 +163,7 @@ const Header = () => {
                 {/* Actions */}
                 <div className="flex items-center gap-6">
                     {/* WhatsApp Icon */}
-                    <button className="hidden cursor-pointer md:flex items-center justify-center w-10 h-10 bg-[#4a77b5] rounded-full text-white hover:opacity-90 transition-opacity">
-                        <Phone className="w-5 h-5 fill-current" />
-                    </button>
+                 
 
                     <button className="md:hidden cursor-pointer text-black transition-colors">
                         <Menu className="w-8 h-8" />

@@ -17,18 +17,18 @@ const CorporateOverview = () => {
             <div className="container mr-auto pr-6 md:pr-12 lg:pr-18">
                 <div className="relative z-[999] w-full lg:w-3/4 bg-white px-8 md:px-20 py-8 md:py-12 space-y-12">
                     {/* Header Text Section */}
-                    <div className="space-y-6 max-w-3xl">
+                    <div className="space-y-2 max-w-3xl">
                         <div className="space-y-4">
                             <div className="flex items-center gap-4">
                                 <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-sm">About Us</span>
                                 <div className="h-[2px] w-12 bg-[#3A5D8F]" />
                             </div>
-                            <h2 className="text-4xl md:text-5xl font-serif text-[#1B2B41] font-bold">
-                                Corporate Overview
+                            <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+                 Corporate Overview
                             </h2>
                         </div>
 
-                        <p className="text-gray-600 leading-relaxed text-lg text-justify">
+                         <p className=" pb-4 text-gray-700 leading-relaxed text-justify">
                             Space Builders Group is a renowned real estate developer established around 20 years back.
                             Vision dynamism of our founders has seen the company making remarkable strides.
                             In last few years only, we have successfully completed many projects in various locations of Pune
@@ -45,9 +45,9 @@ const CorporateOverview = () => {
                                 fill
                                 className="object-cover"
                             />
-                            <div className="absolute bottom-0 left-0 bg-white px-6 md:px-8 py-4 max-w-xl">
-                                <h3 className="text-xl md:text-2xl font-serif text-[#1B2B41] font-bold leading-tight mb-4">
-                                    “We are redefining real estate with innovation, integrity, and a vision for lasting value"
+                            <div className="absolute bottom-0 left-0 bg-white px-2 py-4 max-w-xl">
+                                <h3 className="text-xl md:text-2xl  text-[#1B2B41] font-bold leading-tight mb-4">
+                                    We are redefining real estate with innovation, integrity, and a vision for lasting value
                                 </h3>
 
                                 <div className="space-y-6">

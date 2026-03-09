@@ -141,7 +141,8 @@ export default function CompletedProjects() {
                         <span className="text-[#3A5D8F] font-bold uppercase tracking-widest text-xs">Projects</span>
                         <div className="h-[2px] w-12 bg-[#3A5D8F]"></div>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-serif text-[#1B2B41] font-bold">Completed Projects</h2>
+                       <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-[#12394C]">
+                 Completed Projects</h2>
                 </div>
 
                 {/* Grid */}
@@ -161,7 +162,7 @@ export default function CompletedProjects() {
                             {/* Content Section */}
                             <div className="p-4 flex-1 flex flex-col relative">
                                 <div className="flex flex-col items-start mb-2">
-                                    <h3 className="text-xl font-serif font-bold text-[#1B2B41] leading-tight">{project.title}</h3>
+                                    <h3 className="text-xl  font-bold text-[#1B2B41] leading-tight">{project.title}</h3>
                                 </div>
 
                                 <div className="space-y-1.5 mb-6">

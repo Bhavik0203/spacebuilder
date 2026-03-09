@@ -103,7 +103,8 @@ export default function OngoingProjects() {
                         <span className="text-[#C5A265] font-bold uppercase tracking-widest text-xs">Projects</span>
                         <div className="h-[2px] w-12 bg-[#C5A265]"></div>
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-serif text-white font-bold">Ongoing Projects</h2>
+                       <h2 className="text-4xl uppercase md:text-5xl font-bold leading-tight text-white">
+                 Ongoing Projects</h2>
                 </div>
 
                 {/* Main Grid - 3 Cards */}
@@ -175,7 +176,7 @@ export default function OngoingProjects() {
 
                             {/* Content Section */}
                             <div className="pt-10 pb-6 px-6 flex flex-col flex-grow relative">
-                                <h3 className="text-xl font-serif font-bold text-gray-900 leading-tight mb-4">{project.title}</h3>
+                                <h3 className="text-xl  font-bold text-gray-900 leading-tight mb-4">{project.title}</h3>
 
                                 {/* Project Details Grid */}
                                 <div className="space-y-3 mb-6">
@@ -204,7 +205,7 @@ export default function OngoingProjects() {
 
                 {/* Scroller Section - 1 Card */}
                 <div className="mb-8">
-                    <h3 className="text-2xl font-serif text-white font-bold mb-6">Featured Commercial Project</h3>
+                    <h3 className="text-2xl  text-white font-bold mb-6">Featured Commercial Project</h3>
                     <div className="overflow-x-auto pb-4 scrollbar-hide">
                         <div className="flex gap-8 min-w-max px-1">
                             {SCROLLER_PROJECTS.map((project, index) => (
@@ -274,7 +275,7 @@ export default function OngoingProjects() {
 
                                     {/* Content Section */}
                                     <div className="pt-10 pb-6 px-6 flex flex-col flex-grow relative">
-                                        <h3 className="text-xl font-serif font-bold text-gray-900 leading-tight mb-4">{project.title}</h3>
+                                        <h3 className="text-xl  font-bold text-gray-900 leading-tight mb-4">{project.title}</h3>
 
                                         {/* Project Details Grid */}
                                         <div className="space-y-3 mb-6">
