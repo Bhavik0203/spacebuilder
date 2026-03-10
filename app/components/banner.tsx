@@ -87,8 +87,8 @@ const Banner = () => {
                 </div>
                 
                 {/* Right Side - Ongoing Projects */}
-                <div className="w-full lg:w-1/2 pt-0 mt-10 sm:mt-12 lg:mt-0 lg:pt-20 lg:pl-12 flex justify-center lg:justify-end">
-                    <div className="rounded-lg p-4 sm:p-6 lg:w-full w-full max-w-[300px] sm:max-w-[320px] md:max-w-md">
+                <div className="absolute left-1/2 top-[38%] -translate-x-1/2 w-full px-4 flex justify-center lg:static lg:left-auto lg:top-auto lg:translate-x-0 lg:w-1/2 lg:px-0 lg:mt-0 lg:pt-20 lg:pl-12 lg:flex lg:justify-end">
+                    <div className="rounded-lg p-4 sm:p-6 lg:w-full w-full max-w-[300px] sm:max-w-[320px] md:max-w-md backdrop-blur-sm">
                         <h3 className="text-white text-lg sm:text-xl font-bold mb-4 sm:mb-6 text-center">
                             Ongoing Projects
                         </h3>
@@ -99,7 +99,7 @@ const Banner = () => {
                                         onClick={() => toggleProject(index)}
                                         className="w-full px-4 py-3 flex items-center justify-center text-white/90 hover:text-white transition-colors"
                                     >
-                                        <h4 className="font-semibold text-base">{project.title}</h4>
+                                        <h4 className="font-semibold text-sm md:text-base">{project.title}</h4>
                                     </button>
                                     
                                     {expandedProject === index && (
@@ -111,7 +111,7 @@ const Banner = () => {
                                             className="px-4 pb-3"
                                         >
                                             <div className="space-y-2 text-center">
-                                                <div className="flex items-center justify-center gap-2 text-sm text-white/70">
+                                                <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-white/70">
                                                     <MapPin className="w-3 h-3" />
                                                     <span>{project.location}</span>
                                                 </div>
@@ -130,7 +130,6 @@ const Banner = () => {
                                 </div>
                             ))}
                         </div>
-                        
                     </div>
                 </div>
             </div>
