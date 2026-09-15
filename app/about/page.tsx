@@ -60,7 +60,25 @@ export default function AboutPage() {
             <OurDifference />
 
             {/* Team Section */}
-            <TeamSection />
+            {/* <TeamSection /> */}
+            {/* Video Section */}
+            <section className="w-full py-12 bg-white">
+                <div className="container mx-auto px-6 md:px-12 lg:px-24">
+                    <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
+                        <video
+                            className="w-full h-full object-cover"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            controls
+                        >
+                            <source src="/images/video.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </section>
 
             {/* Space Commitment Section */}
             <SpaceCommitment />
